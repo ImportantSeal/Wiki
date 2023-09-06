@@ -1,0 +1,46 @@
+
+body {
+    background-color: rgba(1, 49, 13, 0.89);
+}
+body {
+    font-family: Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 120%;
+    
+}
+.topbar{
+    font-size: 28px;
+    color: rgb(48, 7, 7);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -200%);
+}
+.container {
+    background-color: rgba(4, 37, 17, 0.9); /* Use your desired background color and opacity */
+    width: 55%; /* Adjust the width as needed */
+    height: 100vh;
+    margin: auto;
+    margin-top: 6%;
+    padding-top: 1%;
+    padding-left: 5%;
+    margin-bottom: 4%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow to the stripe */
+}
+
+body {
+    background-image: url('hylje_makaa.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.title{
+    font-size: 40px;
+    color: rgb(235, 235, 235);
+    margin-bottom: 80px;
+}
+.content{ 
+    font-size: 18px;
+    color: white;   
+    margin-right: 5%;
+    text-align: left;
+}
