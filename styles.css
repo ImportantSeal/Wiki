@@ -26,7 +26,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 body {
-    background-image: url('hylje_makaa.jpg');
+    background-image: url('taustakuva.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -50,9 +50,16 @@ body {
     text-align: left;
     padding-bottom: 2%;
 }
+.link{
+    color: rgb(255, 209, 5);
+    transition: color 0.4s;
+}
+.link:hover{
+    color: rgb(255, 246, 169);
+}
 .top-image{
     float: right;
-    width: 30%;
+    width: 350px;
     margin-right: 3%;
     margin-left: 1%;
     border-style: solid;
