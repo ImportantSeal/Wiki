@@ -1,12 +1,14 @@
 
-body {
-    background-color: rgba(1, 49, 13, 0.89);
-}
+
 body {
     font-family: Geneva, Verdana, sans-serif;
     color: white;
     font-size: 120%;
-    
+    background-color: rgba(1, 49, 13, 0.89);
+    background-image: url('taustakuva.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .topbar {
     font-size: 30px;
@@ -25,12 +27,7 @@ body {
     margin-bottom: 4%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-body {
-    background-image: url('taustakuva.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 .title{
     font-size: 45px;
     color: rgb(235, 235, 235);
@@ -57,11 +54,13 @@ body {
 .link:hover{
     color: rgb(255, 246, 169);
 }
+
 .top-image{
     float: right;
-    width: 350px;
+    width: 40%;
     margin-right: 3%;
     margin-left: 1%;
+    margin-bottom: 1%;
     border-style: solid;
     border-color: rgb(25, 48, 33);
     border-width: 2px;
