@@ -26,7 +26,6 @@ body {
     margin-bottom: 4%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
 .title{
     font-size: 45px;
     color: rgb(238, 237, 228);
@@ -47,6 +46,7 @@ body {
 .link{
     color: rgb(255, 209, 5);
     transition: color 0.4s;
+    text-decoration: none;
 }
 .link:hover{
     
@@ -60,7 +60,7 @@ body {
 .quote-mark::before {
     font-weight: bold;
     content: '"';
-    color: rgb(212, 214, 68);
+    color: rgb(255, 209, 5);
     font-weight: bold; 
     font-size: inherit; 
 }
@@ -87,5 +87,11 @@ body {
     background-color: rgb(39, 73, 51);
     clear: both;
 }
-
-
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    margin-right: 6%;
+}
