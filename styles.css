@@ -96,3 +96,8 @@ hr {
     margin: 1em 0;
     margin-right: 6%;
 }
+
+.table-of-contents-link{
+    text-decoration: none;
+    color: rgb(205, 207, 66);
+}
