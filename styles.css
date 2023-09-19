@@ -14,8 +14,13 @@ body {
     color: rgb(48, 7, 7);
     text-align: center; /* */
     margin-top: 2%;
+    
 }
-
+.home-image{
+    width: 5%; 
+    height: auto; 
+    
+}
 .container {
     background-color: rgba(4, 37, 17, 0.9);
     width: 55%;
