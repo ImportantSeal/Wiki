@@ -106,3 +106,9 @@ hr {
     text-decoration: none;
     color: rgb(205, 207, 66);
 }
+
+.flagg-image{
+    width: 24px;
+    height: auto;
+    vertical-align: middle;
+}
