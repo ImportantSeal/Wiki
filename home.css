@@ -1,0 +1,81 @@
+body {
+    font-family: Geneva, Verdana, sans-serif;
+    color: rgb(238, 237, 228);
+    font-size: 120%;
+    background-color: rgba(1, 49, 13, 0.89);
+    background-image: url('taustakuva.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container{
+    background-color: rgba(4, 37, 17, 0.9);
+    width: 75%;
+    margin: auto; 
+    padding-top: 1%;
+    padding-left: 5%;
+    margin-bottom: 4%;
+    padding-bottom: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.title{
+    
+    text-align: center;
+    margin-bottom: 10%;
+}
+.subtitle{
+    size: 2000px;
+}
+.link{
+    color: rgb(255, 209, 5);
+    transition: color 0.4s;
+    text-decoration: none;
+}
+.link:hover{
+    color: rgb(255, 246, 169);
+}
+.subhead-link{
+    color: rgb(255, 255, 255);
+    transition: color 0.4s;
+    text-decoration: none;
+    
+}
+.subhead-link:hover{
+    color: rgb(255, 246, 169);
+}
+.list-dot{
+    color: rgb(255, 246, 199);
+}
+.sublist-dot{
+    color: rgb(255, 246, 169);
+    list-style-type: disc;
+    margin-left: 20px;
+}
+.list-container {
+    display: flex;
+    
+}
+.list-container ul{
+    display: inline-block; 
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+.list {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+  
+.list li {
+margin: 5px; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    margin-right: 6%;
+}

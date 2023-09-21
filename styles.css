@@ -14,12 +14,10 @@ body {
     color: rgb(48, 7, 7);
     text-align: center; /* */
     margin-top: 2%;
-    
 }
 .home-image{
     width: 5%; 
     height: auto; 
-    
 }
 .container {
     background-color: rgba(4, 37, 17, 0.9);
@@ -32,6 +30,7 @@ body {
     padding-bottom: 2%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 .title{
     font-size: 45px;
     color: rgb(238, 237, 228);
@@ -55,7 +54,6 @@ body {
     text-decoration: none;
 }
 .link:hover{
-    
     color: rgb(255, 246, 169);
 }
 .quote{
@@ -92,6 +90,10 @@ body {
     border-width: 2px;
     background-color: rgb(39, 73, 51);
     clear: both;
+}
+.bottom-box-title{
+    color: rgb(255, 255, 255);
+    
 }
 hr {
     display: block;
