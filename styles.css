@@ -71,30 +71,44 @@ body {
 .top-image{
     float: right;
     width: 40%;
-    margin-right: 3%;
+    margin-right: 6%;
     margin-left: 1%;
     margin-bottom: 1%;
     border-style: solid;
-    border-color: rgb(25, 48, 33);
+    border-color: rgb(29, 49, 36);
     border-width: 2px;
     background-color: rgb(39, 73, 51);
+    padding: 1%;
 }
 .bottom-box{
     float:right;
     width: 40%;
-    margin-right: 3%;
-    margin-left: 1%;
+    margin-right: 6%;
+    margin-left: 1.5%;
     margin-bottom: 1%;
     border-style: solid;
-    border-color: rgb(35, 54, 42);
+    border-color: rgb(29, 49, 36);
     border-width: 2px;
     background-color: rgb(39, 73, 51);
     clear: both;
+    padding: 1%;
 }
-.bottom-box-title{
-    color: rgb(255, 255, 255);
-    
+
+.center-container {
+    text-align: left; 
+    width: 100%; 
+    margin-bottom: 2%;
+    margin-top: 1%;
+    font-weight: bold;
 }
+
+.bottom-box-hr {
+    display: block;
+    border-top: 3px solid rgb(29, 49, 36);
+    margin:  auto;
+    margin-top: 1%; 
+}
+
 hr {
     display: block;
     height: 1px;
