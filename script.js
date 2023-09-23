@@ -18,3 +18,4 @@ headings.forEach((heading, index)=>{
         heading.scrollIntoView({behavior:'smooth'});
     });
 });
+
