@@ -13,7 +13,7 @@ body {
   width: 7vw;
   border: 0px solid rgb(62, 144, 158);
   border-radius: 50%;
-  box-shadow: 0 0 5vw rgb(0, 0, 0); /* Käytä vw-yksikköä box-shadow-leveydessä */
+  box-shadow: 0 0 5vw rgb(0, 0, 0); 
   background-color: rgb(57, 132, 145);
   transition: background-color 0.3s, transform 0.3s;
   position: absolute;
@@ -35,7 +35,13 @@ a:hover #pinta {
   margin-top: -1.5vw;
   border-radius: 50%;
   background-color: #ff4800;
+  transition: background-color 0.3s, transform 0,3;
 }
+
+a:hover #fire {
+  background-color: rgb(243, 194, 0);
+}
+
 
 #water {
   position: absolute;
@@ -47,7 +53,12 @@ a:hover #pinta {
   margin-top: -1.5vw;
   border-radius: 50%;
   background-color: #0066ff;
+  transition: backgorund-color 0.3s, transform 0.3s;
   
+}
+
+a:hover #water{
+  background-color: lightblue;
 }
 
 #earth {
@@ -60,7 +71,11 @@ a:hover #pinta {
   margin-top: -1.5vw;
   border-radius: 50%;
   background-color: #915e32;
-  
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+a:hover #earth{
+  background-color: rgb(178, 173, 173);
 }
 
 #air {
@@ -73,7 +88,11 @@ a:hover #pinta {
   margin-top: -1.5vw;
   border-radius: 50%;
   background-color: #bdd7ff;
-  
+  transition: backgorund-color 0.3s, tranform 0.3s;
+}
+
+a:hover #air{
+  background-color: white;
 }
 
 #elemental-orbit {
@@ -85,7 +104,7 @@ a:hover #pinta {
   margin-top: -15vw; 
   margin-left: -15vw; 
   border-width: 0.2vw;
-  border-style: dotted;
+  border-style: solid;
   border-color: white;
   border-radius: 50%;
   animation: spin-right 65s linear infinite;
