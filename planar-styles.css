@@ -1,177 +1,131 @@
+
 body {
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
+    font-family: Geneva, Verdana, sans-serif;
+    color: rgb(238, 237, 228);
+    font-size: 120%;
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
-#pinta {
-  height: 7vw;
-  width: 7vw;
-  border: 0px solid rgb(62, 144, 158);
-  border-radius: 50%;
-  box-shadow: 0 0 5vw rgb(0, 0, 0); 
-  background-color: rgb(57, 132, 145);
-  transition: background-color 0.3s, transform 0.3s;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+.topbar {
+    text-align: center; /* */
+    margin-top: 2%;
 }
-
-a:hover #pinta {
-  background-color: rgb(255, 255, 255);
+.home-image{    
+    width: 5vw; 
+    height: auto; 
 }
-
-#fire {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  height: 3vw; 
-  width: 3vw; 
-  margin-left: -1.5vw; 
-  margin-top: -1.5vw;
-  border-radius: 50%;
-  background-color: #ff4800;
-  transition: background-color 0.3s, transform 0,3;
-}
-
-a:hover #fire {
-  background-color: rgb(243, 194, 0);
+.container {
+    background-color: rgb(0, 0, 0);
+    width: 55%;
+    margin: auto;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-left: 5%;
+    margin-bottom: 4%;
+    padding-bottom: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 0.1vw solid white; 
 }
 
 
-#water {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  height: 3vw; 
-  width: 3vw; 
-  margin-left: -1.5vw; 
-  margin-top: -1.5vw;
-  border-radius: 50%;
-  background-color: #0066ff;
-  transition: backgorund-color 0.3s, transform 0.3s;
-  
+.title{
+    font-size: 2.5vw;
+    color: rgb(238, 237, 228);
+    margin-bottom: 8%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.subhead{
+    font-size: 1.75vw;
+    color: rgb(238, 237, 228);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.content{  
+    font-size: 1.1vw;
+    color: rgb(238, 237, 228);   
+    padding-right: 5%;
+}
+.link{
+    color: rgb(163, 5, 255);
+    transition: color 0.4s;
+    text-decoration: none;
+}
+.link:hover{
+    color: rgb(242, 191, 255);
+}
+.quote{
+    color: rgb(238, 237, 228);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1vw;
+}
+.quote-mark::before {
+    font-weight: bold;
+    content: '"';
+    color: rgb(163, 5, 255);
+    font-weight: bold; 
+    font-size: inherit; 
+}
+.top-image{
+    float: right;
+    width: 20vw;
+    margin-right: 6%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    background-color: rgb(19, 19, 19);
+    padding: 1%;
+}
+.bottom-box{
+    float:right;
+    width: 20vw;
+    margin-right: 6%;
+    margin-left: 1.5%;
+    margin-bottom: 1%;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    background-color: rgb(19, 19, 19);
+    clear: both;
+    padding: 1%;
+    font-size: 1vw;
 }
 
-a:hover #water{
-  background-color: lightblue;
+.center-container {
+    
+    text-align: left; 
+    width: 100%; 
+    margin-bottom: 2%;
+    margin-top: 1%;
+    font-weight: bold;
 }
 
-#earth {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  height: 3vw; 
-  width: 3vw; 
-  margin-left: -1.5vw; 
-  margin-top: -1.5vw;
-  border-radius: 50%;
-  background-color: #915e32;
-  transition: background-color 0.3s, transform 0.3s; 
+.bottom-box-hr {
+    display: block;
+    border-top: 1px solid rgb(255, 255, 255);
+    margin:  auto;
+    margin-top: 1%; 
 }
 
-a:hover #earth{
-  background-color: rgb(178, 173, 173);
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    margin-right: 6%;
 }
 
-#air {
-  position: absolute;
-  top:  0%;
-  left: 50%;
-  height: 3vw; 
-  width: 3vw; 
-  margin-left: -1.5vw; 
-  margin-top: -1.5vw;
-  border-radius: 50%;
-  background-color: #bdd7ff;
-  transition: backgorund-color 0.3s, tranform 0.3s;
+.table-of-contents-link{
+    text-decoration: none;
+    color: rgb(205, 207, 66);
 }
 
-a:hover #air{
-  background-color: white;
-}
-
-#elemental-orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 30vw; 
-  height: 30vw;
-  margin-top: -15vw; 
-  margin-left: -15vw; 
-  border-width: 0.2vw;
-  border-style: solid;
-  border-color: white;
-  border-radius: 50%;
-  animation: spin-right 65s linear infinite;
-}
-
-#ulottovuus2 {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 2vw;
-  width: 2vw; 
-  margin-left: -1vw;
-  margin-top: -1vw; 
-  border-radius: 50%;
-  background-color: #ffffff;
-}
-
-#ulottovuus2-orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 15vw; 
-  height: 15vw;
-  margin-top: -7.5vw;
-  margin-left: -7.5vw; 
-  border-width: 0.2vw;
-  border-style: dotted;
-  border-color: white;
-  border-radius: 50%;
-  animation: spin-left 50s linear infinite;
-}
-
-#ulottovuus3 {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 3vw; 
-  width: 3vw; 
-  margin-left: -1.5vw;
-  margin-top: -1.5vw; 
-  border-radius: 50%;
-  background-color: #ffffff;
-}
-
-#ulottovuus3-orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 21vw;
-  height: 21vw;
-  margin-top: -10.5vw; 
-  margin-left: -10.5vw;
-  border-width: 0.2vw;
-  border-style: dotted;
-  border-color: white;
-  border-radius: 50%;
-  animation: spin-right 100s linear infinite;
-}
-
-@keyframes spin-right {
-  100% {
-      transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-left {
-  100% {
-      transform: rotate(-360deg);
-  }
+.flagg-image{
+    width: 24px;
+    height: auto;
+    vertical-align: middle;
 }
