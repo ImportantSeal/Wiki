@@ -20,7 +20,7 @@ body {
 }
 .container {
     background-color: rgba(4, 37, 17, 0.9);
-    width: 55%;
+    width: 54%;
     margin: auto; 
     margin-top: 5%;
     padding-top: 1%;
@@ -43,7 +43,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .content{  
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: rgb(238, 237, 228);   
     padding-right: 5%;
 }
