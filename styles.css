@@ -72,14 +72,17 @@ body {
     width: 20vw;
     margin-right: 6%;
     margin-left: 1%;
-    margin-bottom: 1%;
     border-style: solid;
-    border-color: rgb(29, 49, 36);
+    border-color: rgb(122, 150, 132);
     border-width: 2px;
-    background-color: rgb(39, 73, 51);
+    background-color: rgb(39, 73, 51, 0.4);
     padding: 1%;
 }
-
+.middle-image{
+    float: right;
+    width: 20vw;
+    margin: auto;
+}
 .bottom-box{
     float:right;
     width: 20vw;
@@ -87,14 +90,27 @@ body {
     margin-left: 1.5%;
     margin-bottom: 1%;
     border-style: solid;
-    border-color: rgb(29, 49, 36);
+    border-color: rgb(122, 150, 132);
     border-width: 2px;
-    background-color: rgb(39, 73, 51);
+    background-color: rgb(39, 73, 51, 0.4);
+    clear: both;
+    padding: 1%;
+    font-size: 1vw;
+    margin-top: 1%;
+}
+.caption{
+    float:right;
+    width: 20vw;
+    margin-right: 6%;
+    margin-left: 1.5%;
+    border-style: solid;
+    border-color: rgb(122, 150, 132);
+    border-width: 2px;
+    background-color: rgb(39, 73, 51, 0.4);
     clear: both;
     padding: 1%;
     font-size: 1vw;
 }
-
 .center-container {
     text-align: left; 
     width: 100%; 
