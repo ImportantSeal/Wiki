@@ -31,19 +31,19 @@ body {
 }
 
 .title{
-    font-size: 2.5vw;
+    font-size: 2.5em;
     color: rgb(238, 237, 228);
     margin-bottom: 8%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 .subhead{
-    font-size: 1.75vw;
+    font-size: 1.5em;
     color: rgb(238, 237, 228);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .content{  
-    font-size: 1.2vw;
+    font-size: 1em;
     color: rgb(238, 237, 228);   
     padding-right: 5%;
 }
@@ -58,7 +58,7 @@ body {
 .quote{
     color: rgb(238, 237, 228);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1vw;
+    font-size: 0.8em;
 }
 .quote-mark::before {
     font-weight: bold;
@@ -73,9 +73,9 @@ body {
     margin-right: 6%;
     margin-left: 1%;
     border-style: solid;
-    border-color: rgb(122, 150, 132);
+    border-color: rgb(226, 226, 226);
     border-width: 2px;
-    background-color: rgb(39, 73, 51, 0.4);
+    background-color: rgba(22, 41, 29, 0.4);
     padding: 1%;
 }
 .middle-image{
@@ -90,13 +90,13 @@ body {
     margin-left: 1.5%;
     margin-bottom: 1%;
     border-style: solid;
-    border-color: rgb(122, 150, 132);
+    border-color: rgb(226, 226, 226);
     border-width: 2px;
-    background-color: rgb(39, 73, 51, 0.4);
+    background-color: rgb(22, 41, 29, 0.4);
     clear: both;
     padding: 1%;
-    font-size: 1vw;
-    margin-top: 1%;
+    font-size: 0.9em;
+    margin-top: 2%;
 }
 .caption{
     float:right;
@@ -104,31 +104,34 @@ body {
     margin-right: 6%;
     margin-left: 1.5%;
     border-style: solid;
-    border-color: rgb(122, 150, 132);
+    border-color: rgb(226, 226, 226);
     border-width: 2px;
-    background-color: rgb(39, 73, 51, 0.4);
+    background-color: rgb(22, 41, 29, 0.4);
     clear: both;
     padding: 1%;
-    font-size: 1vw;
+    font-size: 0.9em;
 }
 .center-container {
     text-align: left; 
     width: 100%; 
     margin-bottom: 2%;
-    margin-top: 1%;
     font-weight: bold;
+}
+.center-title{
+    font-size: 0.95em;
+    padding-top: 2%;
 }
 
 .bottom-box-hr {
     display: block;
-    border-top: 3px solid rgb(29, 49, 36);
+    border-top: 2px solid rgb(255, 209, 5);
     margin:  auto;
-    margin-top: 1%; 
+    margin-top: 2%; 
 }
 
 hr {
     display: block;
-    height: 1px;
+    height: 2px;
     border: 0;
     border-top: 1px solid #cccccc;
     margin: 1em 0;
@@ -140,8 +143,8 @@ hr {
     color: rgb(205, 207, 66);
 }
 
-.flagg-image{
-    width: 24px;
+.flagg-image{ /*esim sotien kuvauksissa, pieni fontin kokoinnen lippukuva joka asetetaan nimen eteen*/
+    width: 1.2em;
     height: auto;
     vertical-align: middle;
 }
