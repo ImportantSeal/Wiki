@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map</title>
+    <link rel="stylesheet" href="map.css">
+</head>
+<body class="body">
+    <div id="map-container">
+        <h1 class="titletext">World Map</h1>
+        <img src="/media_muu/aadramin.jpg" id="map" usemap="#map">
+        <div id="marker" style="position: absolute; left: 10%; top: 50%; width: 1vh; height: 1vh; background-color: red; border-radius: 50%;"></div>
+        <map name="map">
+            <area shape="rect" coords="100,100,200,200" href="#" alt="paikka" onmouseover="document.getElementById('marker').style.display = 'block';" onmouseout="document.getElementById('marker').style.display = 'none';">
+        </map>
+    </div>
+    
+
+    <div class="bottom-navbar">
+        <a href="linkki" class="active">Wiki</a>
+        <a href="linkki">Map Gallery</a>
+        <a href="https://github.com/ImportantSeal">Github</a>
+    </div>
+    
+    
+<script src="map.js"></script>
+</body>
+</html>
