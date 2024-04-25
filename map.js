@@ -1,24 +1,68 @@
-const points = [
-    { xPercent: 25, yPercent: 30, title: "Paikka 1", url: "http://linkki1.fi" },
-    { xPercent: 50, yPercent: 50, title: "Paikka 2", url: "http://linkki2.fi" },
-    // Lisää muita pisteitä
-];
-
-function placePoints() {
-    const container = document.getElementById('map-container');
+document.addEventListener('DOMContentLoaded', function() {
     const map = document.getElementById('map');
-    points.forEach(point => {
-        const marker = document.createElement('div');
-        marker.classList.add('marker');
-        // Lasketaan prosenttien perusteella absoluuttiset pikselikoordinaatit
-        marker.style.left = `${point.xPercent}%`;
-        marker.style.top = `${point.yPercent}%`;
-        marker.title = point.title;
-        marker.onclick = () => window.location.href = point.url;
-        container.appendChild(marker);
-    });
-}
+    const container = document.getElementById('map-container');
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let translateX = 0, translateY = 0;
+    let scale = 1;
+    const ZOOM_SPEED = 0.1;
 
-// Kun sivu latautuu tai ikkunan koko muuttuu, kutsu placePoints
-window.onload = placePoints;
-window.onresize = placePoints;
+    map.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        map.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            let dx = e.clientX - startX;
+            let dy = e.clientY - startY;
+
+            // Tarkista ja päivitä translate-arvot ottaen huomioon zoomaustaso
+            let newTranslateX = translateX + dx;
+            let newTranslateY = translateY + dy;
+
+            let maxTranslateX = 0;
+            let maxTranslateY = 0;
+            let minTranslateX = Math.min(0, container.offsetWidth - map.offsetWidth * scale);
+            let minTranslateY = Math.min(0, container.offsetHeight - map.offsetHeight * scale);
+
+            // Asetetaan rajoitukset translate-arvoille
+            translateX = Math.max(minTranslateX, Math.min(maxTranslateX, newTranslateX));
+            translateY = Math.max(minTranslateY, Math.min(maxTranslateY, newTranslateY));
+
+            startX = e.clientX;
+            startY = e.clientY;
+            updateTransform();
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+        map.style.cursor = 'grab';
+    });
+
+    map.addEventListener('wheel', function(e) {
+        e.preventDefault();
+
+        const rect = map.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        let zoomFactor = e.deltaY < 0 ? 1 + ZOOM_SPEED : 1 / (1 + ZOOM_SPEED);
+        let newScale = scale * zoomFactor;
+
+        translateX -= (x * map.offsetWidth * (zoomFactor - 1));
+        translateY -= (y * map.offsetHeight * (zoomFactor - 1));
+        scale = newScale;
+
+        updateTransform();
+    });
+
+    function updateTransform() {
+        map.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        map.style.transformOrigin = '0 0';
+    }
+});
