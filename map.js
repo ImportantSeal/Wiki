@@ -1,24 +1,125 @@
-const points = [
-    { xPercent: 25, yPercent: 30, title: "Paikka 1", url: "http://linkki1.fi" },
-    { xPercent: 50, yPercent: 50, title: "Paikka 2", url: "http://linkki2.fi" },
-    // Lisää muita pisteitä
-];
+function trackTransforms(ctx) {
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+    var xform = svg.createSVGMatrix();
+    ctx.getTransform = function () { return xform; };
 
-function placePoints() {
-    const container = document.getElementById('map-container');
-    const map = document.getElementById('map');
-    points.forEach(point => {
-        const marker = document.createElement('div');
-        marker.classList.add('marker');
-        // Lasketaan prosenttien perusteella absoluuttiset pikselikoordinaatit
-        marker.style.left = `${point.xPercent}%`;
-        marker.style.top = `${point.yPercent}%`;
-        marker.title = point.title;
-        marker.onclick = () => window.location.href = point.url;
-        container.appendChild(marker);
-    });
+    var savedTransforms = [];
+    var save = ctx.save;
+    ctx.save = function () {
+        savedTransforms.push(xform.translate(0, 0));
+        return save.call(ctx);
+    };
+
+    var restore = ctx.restore;
+    ctx.restore = function () {
+        xform = savedTransforms.pop();
+        return restore.call(ctx);
+    };
+
+    var scale = ctx.scale;
+    ctx.scale = function (sx, sy) {
+        xform = xform.scaleNonUniform(sx, sy);
+        return scale.call(ctx, sx, sy);
+    };
+
+    var rotate = ctx.rotate;
+    ctx.rotate = function (radians) {
+        xform = xform.rotate(radians * 180 / Math.PI);
+        return rotate.call(ctx, radians);
+    };
+
+    var translate = ctx.translate;
+    ctx.translate = function (dx, dy) {
+        xform = xform.translate(dx, dy);
+        return translate.call(ctx, dx, dy);
+    };
+
+    var setTransform = ctx.setTransform;
+    ctx.setTransform = function (a, b, c, d, e, f) {
+        xform.a = a;
+        xform.b = b;
+        xform.c = c;
+        xform.d = d;
+        xform.e = e;
+        xform.f = f;
+        return setTransform.call(ctx, a, b, c, d, e, f);
+    };
+
+    var pt = svg.createSVGPoint();
+    ctx.transformedPoint = function (x, y) {
+        pt.x = x; pt.y = y;
+        return pt.matrixTransform(xform.inverse());
+    }
 }
 
-// Kun sivu latautuu tai ikkunan koko muuttuu, kutsu placePoints
-window.onload = placePoints;
-window.onresize = placePoints;
+window.onload = function () {
+    var canvas = document.getElementById('mapCanvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = '/media_muu/aadramin.jpg';
+    img.onload = function () {
+        canvas.width = window.innerWidth; // Set canvas width to fill the screen width
+        canvas.height = img.height * (canvas.width / img.width); // Set height based on image aspect ratio
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        trackTransforms(ctx);
+
+        function redraw() {
+            var p1 = ctx.transformedPoint(0, 0);
+            var p2 = ctx.transformedPoint(canvas.width, canvas.height);
+            ctx.clearRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+
+        var lastX = canvas.width / 2, lastY = canvas.height / 2;
+        var dragStart, dragged;
+
+        canvas.addEventListener('mousedown', function (evt) {
+            document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
+            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+            dragStart = ctx.transformedPoint(lastX, lastY);
+            dragged = false;
+        }, false);
+
+        canvas.addEventListener('mousemove', function (evt) {
+            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+            dragged = true;
+            if (dragStart) {
+                var pt = ctx.transformedPoint(lastX, lastY);
+                var dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
+                ctx.translate(dx, dy);
+                redraw();
+            }
+        }, false);
+
+        canvas.addEventListener('mouseup', function (evt) {
+            dragStart = null;
+            if (!dragged) zoom(evt.shiftKey ? -1 : 1);
+        }, false);
+
+        var scaleFactor = 1.1;
+
+        var zoom = function (clicks) {
+            var pt = ctx.transformedPoint(lastX, lastY);
+            ctx.translate(pt.x, pt.y);
+            var factor = Math.pow(scaleFactor, clicks);
+            var futureScale = ctx.getTransform().a * factor; // Get the future scale level
+            if (futureScale < 1) {
+                factor = 1 / ctx.getTransform().a; // Adjust factor to not zoom out below 100%
+            }
+            ctx.scale(factor, factor);
+            ctx.translate(-pt.x, -pt.y);
+            redraw();
+        }
+
+        var handleScroll = function (evt) {
+            var delta = evt.wheelDelta ? evt.wheelDelta / 40 : evt.detail ? -evt.detail : 0;
+            if (delta) zoom(delta);
+            return evt.preventDefault() && false;
+        };
+
+        canvas.addEventListener('DOMMouseScroll', handleScroll, false);
+        canvas.addEventListener('mousewheel', handleScroll, false);
+    };
+}

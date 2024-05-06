@@ -1,14 +1,15 @@
-
 .body{
     background-color: rgb(13, 15, 43);
     font-family: Helvetica, sans-serif; 
-
+    position: absolute;
+    margin: 0; 
+    height: 100vh; 
 }
 
 .titletext{
     font-family: roboto, sans-serif;
     text-align: center;
-    font-size: 5vh;
+    font-size: 3vh;
     font-weight: bold;
     color: aliceblue;
     
@@ -17,11 +18,11 @@
 
 .bottom-navbar {
     background-color: rgb(11, 13, 34);
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    margin: auto;
-    position: top ;
+    text-align: center;
+    z-index: 1; 
 }
 
 .bottom-navbar a {
@@ -29,9 +30,9 @@
     display: block;
     color: aliceblue;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2.75vh 2vh;
     text-decoration: none;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
   
@@ -41,29 +42,49 @@
 }
 
 .bottom-navbar a.active {
-  background-color: rgb(255, 209, 5);
+  background-color: rgb(94, 69, 41);
   color: white;
 }
 
+#logo {
+    width: 16vh; 
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    bottom: 0; 
+    height: auto;
+    z-index: 2; 
+}
+
 #map-container {
-    position: relative;
+    position: absolute;
+    text-align: center;
     width: 100%;
-    height: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 7vh;
 }
 
 #map {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
+    transform: translateX(-50% 50%); 
+    user-select: none;
+
 }
+
+
+
 
 .marker {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 20px; /* tai sopiva koko */
+    height: 20px; /* tai sopiva koko */
     background-color: red;
     border-radius: 50%;
     cursor: pointer;
-    transform: translate(-50%, -50%); 
-}
+    transform: translate(-50%, -50%); /* Keskitä markkeri sen koordinaatteihin */
+    fill: red; /* SVG-täplien väri */
 
+}
