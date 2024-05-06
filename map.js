@@ -1,68 +1,125 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const map = document.getElementById('map');
-    const container = document.getElementById('map-container');
-    let isDragging = false;
-    let startX = 0, startY = 0;
-    let translateX = 0, translateY = 0;
-    let scale = 1;
-    const ZOOM_SPEED = 0.1;
+function trackTransforms(ctx) {
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+    var xform = svg.createSVGMatrix();
+    ctx.getTransform = function () { return xform; };
 
-    map.addEventListener('mousedown', function(e) {
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        map.style.cursor = 'grabbing';
-        e.preventDefault();
-    });
+    var savedTransforms = [];
+    var save = ctx.save;
+    ctx.save = function () {
+        savedTransforms.push(xform.translate(0, 0));
+        return save.call(ctx);
+    };
 
-    document.addEventListener('mousemove', function(e) {
-        if (isDragging) {
-            let dx = e.clientX - startX;
-            let dy = e.clientY - startY;
+    var restore = ctx.restore;
+    ctx.restore = function () {
+        xform = savedTransforms.pop();
+        return restore.call(ctx);
+    };
 
-            // Tarkista ja päivitä translate-arvot ottaen huomioon zoomaustaso
-            let newTranslateX = translateX + dx;
-            let newTranslateY = translateY + dy;
+    var scale = ctx.scale;
+    ctx.scale = function (sx, sy) {
+        xform = xform.scaleNonUniform(sx, sy);
+        return scale.call(ctx, sx, sy);
+    };
 
-            let maxTranslateX = 0;
-            let maxTranslateY = 0;
-            let minTranslateX = Math.min(0, container.offsetWidth - map.offsetWidth * scale);
-            let minTranslateY = Math.min(0, container.offsetHeight - map.offsetHeight * scale);
+    var rotate = ctx.rotate;
+    ctx.rotate = function (radians) {
+        xform = xform.rotate(radians * 180 / Math.PI);
+        return rotate.call(ctx, radians);
+    };
 
-            // Asetetaan rajoitukset translate-arvoille
-            translateX = Math.max(minTranslateX, Math.min(maxTranslateX, newTranslateX));
-            translateY = Math.max(minTranslateY, Math.min(maxTranslateY, newTranslateY));
+    var translate = ctx.translate;
+    ctx.translate = function (dx, dy) {
+        xform = xform.translate(dx, dy);
+        return translate.call(ctx, dx, dy);
+    };
 
-            startX = e.clientX;
-            startY = e.clientY;
-            updateTransform();
-        }
-    });
+    var setTransform = ctx.setTransform;
+    ctx.setTransform = function (a, b, c, d, e, f) {
+        xform.a = a;
+        xform.b = b;
+        xform.c = c;
+        xform.d = d;
+        xform.e = e;
+        xform.f = f;
+        return setTransform.call(ctx, a, b, c, d, e, f);
+    };
 
-    document.addEventListener('mouseup', function() {
-        isDragging = false;
-        map.style.cursor = 'grab';
-    });
-
-    map.addEventListener('wheel', function(e) {
-        e.preventDefault();
-
-        const rect = map.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-
-        let zoomFactor = e.deltaY < 0 ? 1 + ZOOM_SPEED : 1 / (1 + ZOOM_SPEED);
-        let newScale = scale * zoomFactor;
-
-        translateX -= (x * map.offsetWidth * (zoomFactor - 1));
-        translateY -= (y * map.offsetHeight * (zoomFactor - 1));
-        scale = newScale;
-
-        updateTransform();
-    });
-
-    function updateTransform() {
-        map.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        map.style.transformOrigin = '0 0';
+    var pt = svg.createSVGPoint();
+    ctx.transformedPoint = function (x, y) {
+        pt.x = x; pt.y = y;
+        return pt.matrixTransform(xform.inverse());
     }
-});
+}
+
+window.onload = function () {
+    var canvas = document.getElementById('mapCanvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = '/media_muu/aadramin.jpg';
+    img.onload = function () {
+        canvas.width = window.innerWidth; // Set canvas width to fill the screen width
+        canvas.height = img.height * (canvas.width / img.width); // Set height based on image aspect ratio
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        trackTransforms(ctx);
+
+        function redraw() {
+            var p1 = ctx.transformedPoint(0, 0);
+            var p2 = ctx.transformedPoint(canvas.width, canvas.height);
+            ctx.clearRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+
+        var lastX = canvas.width / 2, lastY = canvas.height / 2;
+        var dragStart, dragged;
+
+        canvas.addEventListener('mousedown', function (evt) {
+            document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
+            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+            dragStart = ctx.transformedPoint(lastX, lastY);
+            dragged = false;
+        }, false);
+
+        canvas.addEventListener('mousemove', function (evt) {
+            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+            dragged = true;
+            if (dragStart) {
+                var pt = ctx.transformedPoint(lastX, lastY);
+                var dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
+                ctx.translate(dx, dy);
+                redraw();
+            }
+        }, false);
+
+        canvas.addEventListener('mouseup', function (evt) {
+            dragStart = null;
+            if (!dragged) zoom(evt.shiftKey ? -1 : 1);
+        }, false);
+
+        var scaleFactor = 1.1;
+
+        var zoom = function (clicks) {
+            var pt = ctx.transformedPoint(lastX, lastY);
+            ctx.translate(pt.x, pt.y);
+            var factor = Math.pow(scaleFactor, clicks);
+            var futureScale = ctx.getTransform().a * factor; // Get the future scale level
+            if (futureScale < 1) {
+                factor = 1 / ctx.getTransform().a; // Adjust factor to not zoom out below 100%
+            }
+            ctx.scale(factor, factor);
+            ctx.translate(-pt.x, -pt.y);
+            redraw();
+        }
+
+        var handleScroll = function (evt) {
+            var delta = evt.wheelDelta ? evt.wheelDelta / 40 : evt.detail ? -evt.detail : 0;
+            if (delta) zoom(delta);
+            return evt.preventDefault() && false;
+        };
+
+        canvas.addEventListener('DOMMouseScroll', handleScroll, false);
+        canvas.addEventListener('mousewheel', handleScroll, false);
+    };
+}
