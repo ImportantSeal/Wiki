@@ -57,69 +57,104 @@ window.onload = function () {
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = '/media_muu/aadramin.jpg';
+
     img.onload = function () {
-        canvas.width = window.innerWidth; // Set canvas width to fill the screen width
-        canvas.height = img.height * (canvas.width / img.width); // Set height based on image aspect ratio
+        canvas.width = window.innerWidth;
+        canvas.height = img.height * (canvas.width / img.width);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         trackTransforms(ctx);
+        redraw();
+    };
 
-        function redraw() {
-            var p1 = ctx.transformedPoint(0, 0);
-            var p2 = ctx.transformedPoint(canvas.width, canvas.height);
-            ctx.clearRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        }
+    function redraw() {
+        var p1 = ctx.transformedPoint(0, 0);
+        var p2 = ctx.transformedPoint(canvas.width, canvas.height);
+        ctx.clearRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
 
-        var lastX = canvas.width / 2, lastY = canvas.height / 2;
-        var dragStart, dragged;
+    function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+    }
 
-        canvas.addEventListener('mousedown', function (evt) {
-            document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
-            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-            dragStart = ctx.transformedPoint(lastX, lastY);
-            dragged = false;
-        }, false);
+    var lastX = canvas.width / 2, lastY = canvas.height / 2;
+    var dragStart, dragged;
 
-        canvas.addEventListener('mousemove', function (evt) {
-            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-            dragged = true;
-            if (dragStart) {
-                var pt = ctx.transformedPoint(lastX, lastY);
-                var dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
-                ctx.translate(dx, dy);
-                redraw();
-            }
-        }, false);
+    canvas.addEventListener('mousedown', function (evt) {
+        document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
+        lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+        lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+        dragStart = ctx.transformedPoint(lastX, lastY);
+        dragged = false;
+    }, false);
 
-        canvas.addEventListener('mouseup', function (evt) {
-            dragStart = null;
-            if (!dragged) zoom(evt.shiftKey ? -1 : 1);
-        }, false);
-
-        var scaleFactor = 1.1;
-
-        var zoom = function (clicks) {
+    canvas.addEventListener('mousemove', function (evt) {
+        lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+        lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+        dragged = true;
+        if (dragStart) {
             var pt = ctx.transformedPoint(lastX, lastY);
-            ctx.translate(pt.x, pt.y);
-            var factor = Math.pow(scaleFactor, clicks);
-            var futureScale = ctx.getTransform().a * factor; // Get the future scale level
-            if (futureScale < 1) {
-                factor = 1 / ctx.getTransform().a; // Adjust factor to not zoom out below 100%
-            }
-            ctx.scale(factor, factor);
-            ctx.translate(-pt.x, -pt.y);
+            var dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
+            ctx.translate(dx, dy);
             redraw();
         }
+    }, false);
 
-        var handleScroll = function (evt) {
-            var delta = evt.wheelDelta ? evt.wheelDelta / 40 : evt.detail ? -evt.detail : 0;
-            if (delta) zoom(delta);
-            return evt.preventDefault() && false;
-        };
+    canvas.addEventListener('mouseup', function (evt) {
+        dragStart = null;
+        if (!dragged) zoom(evt.shiftKey ? -1 : 1);
+        else checkBounds();
+    }, false);
 
-        canvas.addEventListener('DOMMouseScroll', handleScroll, false);
-        canvas.addEventListener('mousewheel', handleScroll, false);
+    var scaleFactor = 1.1;
+
+    var zoom = function (clicks) {
+        var pt = ctx.transformedPoint(lastX, lastY);
+        ctx.translate(pt.x, pt.y);
+        var factor = Math.pow(scaleFactor, clicks);
+        var futureScale = ctx.getTransform().a * factor;
+        if (futureScale < 1) {
+            factor = 1 / ctx.getTransform().a;
+        }
+        ctx.scale(factor, factor);
+        ctx.translate(-pt.x, -pt.y);
+        redraw();
+        checkBounds();
     };
-}
+
+    var handleScroll = function (evt) {
+        var delta = evt.wheelDelta ? evt.wheelDelta / 40 : evt.detail ? -evt.detail : 0;
+        if (delta) zoom(delta);
+        return evt.preventDefault() && false;
+    };
+
+    canvas.addEventListener('DOMMouseScroll', handleScroll, false);
+    canvas.addEventListener('mousewheel', handleScroll, false);
+
+    function checkBounds() {
+        var transform = ctx.getTransform();
+        var xMin = transform.e;
+        var yMin = transform.f;
+        var xMax = transform.e + canvas.width * transform.a;
+        var yMax = transform.f + canvas.height * transform.d;
+
+        var dx = 0, dy = 0;
+
+        if (xMin > 0) {
+            dx = -xMin;
+        } else if (xMax < canvas.width) {
+            dx = canvas.width - xMax;
+        }
+
+        if (yMin > 0) {
+            dy = -yMin;
+        } else if (yMax < canvas.height) {
+            dy = canvas.height - yMax;
+        }
+
+        if (dx !== 0 || dy !== 0) {
+            ctx.translate(dx, dy);
+            redraw();
+        }
+    }
+};
