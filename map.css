@@ -7,7 +7,6 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
 }
 
 .titletext{
@@ -74,15 +73,3 @@ body{
 
 }
 
-
-.marker {
-    position: absolute;
-    width: 20px; /* tai sopiva koko */
-    height: 20px; /* tai sopiva koko */
-    background-color: red;
-    border-radius: 50%;
-    cursor: pointer;
-    transform: translate(-50%, -50%); /* Keskitä markkeri sen koordinaatteihin */
-    fill: red; /* SVG-täplien väri */
-
-}
