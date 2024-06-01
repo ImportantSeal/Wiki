@@ -80,11 +80,10 @@ window.onload = function () {
 
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
-    // Initialize points directly in the script with normalized coordinates
     var points = [
-        { x: 0.1, y: 0.15 },  // Normalized coordinates (0 to 1 range)
-        { x: 0.2, y: 0.25 },
-        { x: 0.3, y: 0.35 }
+        { x: 0.1, y: 0.15, link: 'http://example.com/1' },
+        { x: 0.2, y: 0.25, link: 'http://example.com/2' },
+        { x: 0.3, y: 0.35, link: 'http://example.com/3' }
     ];
 
     function drawPoints() {
@@ -127,6 +126,22 @@ window.onload = function () {
     canvas.addEventListener('mouseup', function (evt) {
         dragStart = null;
         if (!dragged) zoom(evt.shiftKey ? -1 : 1);
+    }, false);
+
+    canvas.addEventListener('click', function (evt) {
+        lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+        lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+        var pt = ctx.transformedPoint(lastX, lastY);
+        points.forEach(function (point) {
+            var scaledX = point.x * canvas.width;
+            var scaledY = point.y * canvas.height;
+            var dx = pt.x - scaledX;
+            var dy = pt.y - scaledY;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 5) {
+                window.open(point.link, '_blank');
+            }
+        });
     }, false);
 
     var scaleFactor = 1.1;
