@@ -80,18 +80,20 @@ window.onload = function () {
 
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
-    // Initialize points directly in the script
+    // Initialize points directly in the script with normalized coordinates
     var points = [
-        { x: 975, y: 420 },
-        { x: 200, y: 250 },
-        { x: 300, y: 350 }
+        { x: 0.1, y: 0.15 },  // Normalized coordinates (0 to 1 range)
+        { x: 0.2, y: 0.25 },
+        { x: 0.3, y: 0.35 }
     ];
 
     function drawPoints() {
         ctx.save();
         points.forEach(function (point) {
+            var scaledX = point.x * canvas.width;
+            var scaledY = point.y * canvas.height;
             ctx.beginPath();
-            ctx.arc(point.x, point.y, 5, 0, 2 * Math.PI, true);
+            ctx.arc(scaledX, scaledY, 5, 0, 2 * Math.PI, true);
             ctx.fillStyle = 'red';
             ctx.fill();
             ctx.strokeStyle = 'black';
