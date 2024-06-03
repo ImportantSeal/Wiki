@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Map</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="map.css">
 </head>
 <body>
@@ -16,9 +17,18 @@
         <a href="linkki" class="active">World Map</a>
         <a href="linkki">Map Gallery</a>
         <a href="https://github.com/ImportantSeal">Github</a>
+        <a href="linkki">Lista</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()">Hae</button>
+        </div>
         <img src="/media_muu/logo.png" id="logo">
     </div>
      
-<script src="map.js"></script>
+    <div id="results"></div>
+
+    <script src="map.js"></script>
+    <script src="search.js"></script>
+
 </body>
 </html>
