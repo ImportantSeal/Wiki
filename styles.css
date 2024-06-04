@@ -232,12 +232,11 @@ hr {
 
 #search-bar {
     display: flex;
-    margin-right: auto;
-    padding-left: 1.5vh;
+    margin-left: auto;
 }
 
 #search-input {
-    padding: 1.75vh;
+    padding: 2.75vh;
     font-size: 2vh;
     background-color: rgb(255, 255, 255);
     border: 0;
@@ -245,7 +244,7 @@ hr {
 
 button {
     color: white;
-    padding: 1.75vh 1.5vh;
+    padding: 1.75vh 2.5vh;
     font-size: 2vh;
     background-color: rgb(94, 69, 41);
     border:0;
