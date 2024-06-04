@@ -80,8 +80,8 @@ window.onload = function () {
 
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
-    var points = [
-        { x: 0.1, y: 0.15, link: '/valtiot\jaakka\inhi.html' },
+    var points = [        
+        { x: 0.1, y: 0.15, link:'\valtiot\jaakka\inhi.html'},
         { x: 0.2, y: 0.25, link: 'http://example.com/2' },
         { x: 0.3, y: 0.35, link: 'http://example.com/3' }
     ];
@@ -128,6 +128,7 @@ window.onload = function () {
         if (!dragged) zoom(evt.shiftKey ? -1 : 1);
     }, false);
 
+    
     canvas.addEventListener('click', function (evt) {
         lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
         lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
@@ -143,6 +144,7 @@ window.onload = function () {
             }
         });
     }, false);
+
 
     var scaleFactor = 1.1;
 

@@ -232,8 +232,8 @@ hr {
 
 #search-bar {
     display: flex;
-    margin-left: auto;
-    padding-right: 0.5vh;
+    margin-right: auto;
+    padding-left: 1.5vh;
 }
 
 #search-input {
