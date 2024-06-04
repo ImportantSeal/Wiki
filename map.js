@@ -81,7 +81,7 @@ window.onload = function () {
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
     var points = [        
-        { x: 0.1, y: 0.15, link:'\valtiot\jaakka\inhi.html'},
+        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html'},
         { x: 0.2, y: 0.25, link: 'http://example.com/2' },
         { x: 0.3, y: 0.35, link: 'http://example.com/3' }
     ];

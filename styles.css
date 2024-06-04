@@ -12,6 +12,34 @@ body {
     align-items: center;
     /*background-image: url("taustakuva.png");
     background-blend-mode: overlay;*/
+    
+}
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 16px;  /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);  /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.4);  /* Background of the scrollbar thumb */
+    border-radius: 8px;  /* Roundness of the scrollbar thumb */
+    border: 4px solid rgba(0, 0, 0, 0.1);  /* Creates space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.6);  /* Background of the scrollbar thumb when hovered */
+}
+
+/* Prevent the page from shifting */
+body {
+    overflow-y: scroll;  /* Always show vertical scrollbar */
+    margin: 0;  /* Remove default margin */
+    padding: 0;  /* Remove default padding */
+    box-sizing: border-box;  /* Ensure padding does not affect width/height */
 }
 .topbar {
     color: rgb(48, 7, 7);
@@ -214,7 +242,6 @@ hr {
     transform: translateX(-50%); 
     bottom: 0; 
     height: auto;
-    z-index: 2; 
 }
 
 #map-container {
