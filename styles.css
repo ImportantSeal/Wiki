@@ -10,37 +10,33 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    margin: 0;
     /*background-image: url("taustakuva.png");
     background-blend-mode: overlay;*/
     
 }
 
-/* Style the scrollbar */
+
 ::-webkit-scrollbar {
-    width: 16px;  /* Width of the scrollbar */
+    width: 2vh;  
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);  /* Background of the scrollbar track */
+    background: rgba(0, 0, 0, 0.1);  
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.4);  /* Background of the scrollbar thumb */
-    border-radius: 8px;  /* Roundness of the scrollbar thumb */
-    border: 4px solid rgba(0, 0, 0, 0.1);  /* Creates space around the thumb */
+    background: rgba(0, 0, 0, 0.4);  /* background of the scrollbar thumb */
+    border-radius: 0.5vh;  /* roundness of the scrollbar thumb */
+    border: solid rgba(0, 0, 0, 0.1);  /*  space around the thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.6);  /* Background of the scrollbar thumb when hovered */
+    background: rgba(0, 0, 0, 0.6); 
 }
 
-/* Prevent the page from shifting */
-body {
-    overflow-y: scroll;  /* Always show vertical scrollbar */
-    margin: 0;  /* Remove default margin */
-    padding: 0;  /* Remove default padding */
-    box-sizing: border-box;  /* Ensure padding does not affect width/height */
-}
+
 .topbar {
     color: rgb(48, 7, 7);
     text-align: center; /* */
@@ -58,6 +54,8 @@ body {
     padding-left: 5%;
     padding-bottom: 8%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    margin-bottom: 3vh;
 }
 
 .title{
@@ -196,23 +194,14 @@ hr {
 }
 
 
-
-
-
-
-
-
-
 .bottom-navbar {
     background-color: rgb(19, 21, 44);
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-    z-index: 1; 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 100;
 }
 
 .bottom-navbar a {
@@ -237,7 +226,7 @@ hr {
 
 #logo {
     width: 16vh; 
-    position: absolute;
+    position: fixed;
     left: 50%; 
     transform: translateX(-50%); 
     bottom: 0; 
@@ -276,5 +265,9 @@ button {
     background-color: rgb(94, 69, 41);
     border:0;
     cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(54, 45, 37);
 }
 
