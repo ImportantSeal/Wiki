@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakutulokset</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="search-results-container">
+        <h1>Hakutulokset</h1>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Function to get URL parameter
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search); // Create URLSearchParams object from the query string
+            return urlParams.get(param); // Get the value of the specified parameter
+        }
+
+        // Function to categorize the page based on its URL
+        function categorizePage(page) {
+            if (page.includes('valtiot/')) {
+                return 'Valtiot ja kansat';
+            } else if (page.includes('henkilöt/')) {
+                return 'Henkilöt';
+            } else if (page.includes('maantiede/')) {
+                return 'Maantiede';
+            } else {
+                return 'Muut';
+            }
+        }
+
+        // Function to perform the search operation
+        async function performSearch(query) {
+            const resultsContainer = document.getElementById('results'); // Get the container for displaying results
+            resultsContainer.innerHTML = ''; // Clear any previous results
+
+            // List of wiki pages to search
+            const wikiPages = [
+    // Valtiot
+    'valtiot/jaakka/novatoria.html',
+    'valtiot/jaakka/amaaria.html',
+    'valtiot/jaakka/inhi.html',
+    'valtiot/jaakka/keskeerit.html',
+    'valtiot/jaakka/paltoka.html',
+    'valtiot/jaakka/turan_paronikunta.html',
+    'valtiot/kaldoaivi/kaldoaivi.html',
+    'valtiot/akastasia/akastasia.html',
+    'valtiot/helmeran/helmeran.html',
+    'valtiot/hermes/hermes.html',
+    'valtiot/herwood/herwood.html',
+    'valtiot/luotola/luotola.html',
+    'valtiot/marmaarit/marmaarit.html',
+    'valtiot/parkea/parkea.html',
+    'valtiot/sarjas/sarjas.html',
+    'valtiot/sermania/sermania.html',
+
+    // Kaupungit
+    'valtiot/jaakka/jaakka_kaupungit/kaanaa.html',
+    'valtiot/jaakka/jaakka_kaupungit/novatoria.html',
+
+    // Henkilöt
+    'henkilöt/aapos.html',
+    'henkilöt/almus_iv.html',
+    'henkilöt/august_ii.html',
+    'henkilöt/belhel_ix.html',
+    'henkilöt/henkilöt_etusivu.html',
+    'henkilöt/isabella_ii.html',
+    'henkilöt/kastov.html',
+    'henkilöt/nefretek.html',
+    'henkilöt/olavi_i.html',
+    'henkilöt/olavi_ii.html',
+    'henkilöt/osaman_samir.html',
+    'henkilöt/parkean_heppu.html',
+    'henkilöt/prinssi_kan.html',
+    'henkilöt/sunjahir_v.html',
+
+    // Maantiede
+    'maantiede/aadra.html',
+    'maantiede/kaldon_aavikko.html',
+    'maantiede/kuurovuoret.html',
+    'maantiede/pyhan_heroksen_temppeli.html',
+    'maantiede/rauhansalmi.html',
+    'maantiede/tuhka_vuoret.html',
+
+    // Meret
+    'maantiede/meret/avalon_valtameri.html',
+    'maantiede/meret/punainen_meri.html',
+    'maantiede/meret/pyhiön_meri.html',
+
+    // Tapahtumat
+    'tapahtumat/ensimmainen_amaaria-restesan_sota.html',
+    'tapahtumat/etela_salmen_sota.html',
+    'tapahtumat/sota_rikollisuutta_vastaan.html',
+    'tapahtumat/toinen_amaaria-restesan_sota.html',
+    'tapahtumat/luotolan_kieltolaki.html',
+    'valtiot/kaldoaivi/nefretekin_uudistukset.html',
+
+
+    // Jumalat
+    'olennot_ja_lajit/jumalat/tosi_jumalat/juulevi.html',
+    'olennot_ja_lajit/jumalat/tosi_jumalat/sylvia.html',
+    'olennot_ja_lajit/jumalat/vähemmät_jumalat/kasper.html',
+
+    // Kasvit
+    'olennot_ja_lajit/kasvit/kastov-puu.html',
+    'olennot_ja_lajit/kasvit/vainajanpensas.html',
+    'olennot_ja_lajit/kasvit/verijuuri.html',
+        
+    // Olennot
+    'olennot_ja_lajit/olennot/druidi.html',
+    'olennot_ja_lajit/olennot/arkkidruidi.html',
+    'olennot_ja_lajit/olennot/goblin.html',
+    'olennot_ja_lajit/olennot/keskeerin_hukka.html',
+    'olennot_ja_lajit/olennot/parkean_hevonen.html',
+    'olennot_ja_lajit/olennot/pohjoisenmastiffi.html',
+    'olennot_ja_lajit/olennot/tuulijättiläiset.html',
+
+    // Organisaatiot
+    'organisaatiot/druidilliset_kehdot.html',
+    'organisaatiot/osmenian_velhokunta.html',
+
+
+];
+
+
+            let results = []; // Array to hold the search results
+
+            // Map over each wiki page and fetch its content
+            const fetchPromises = wikiPages.map(page =>
+                fetch(page)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Verkkovastaus ei ollut kunnossa'); // Handle any network errors
+                        }
+                        return response.text(); // Return the text content of the response
+                    })
+                    .then(data => {
+                        const parser = new DOMParser(); // Create a new DOM parser
+                        const doc = parser.parseFromString(data, 'text/html'); // Parse the HTML content
+                        const title = doc.querySelector('title').innerText; // Get the title text
+                        const lowerTitle = title.toLowerCase(); // Convert the title to lowercase
+                        console.log("Fetched title:", title); // Log the fetched title for debugging
+
+                        if (lowerTitle.includes(query)) { // Check if the query is in the title
+                            const index = lowerTitle.indexOf(query); // Get the index of the query in the title
+                            const category = categorizePage(page); // Get the category based on the page URL
+                            results.push({ title, page, index, category }); // Push the result to the results array with category
+                        }
+                    })
+                    .catch(error => console.error('Error fetching the page:', error)) // Handle any errors during fetch
+            );
+
+            // Wait for all fetch operations to complete
+            await Promise.all(fetchPromises);
+
+            // Sort the results by the index of the query in the title
+            results.sort((a, b) => a.index - b.index);
+
+            // Group results by category
+            const categorizedResults = results.reduce((acc, result) => {
+                if (!acc[result.category]) {
+                    acc[result.category] = [];
+                }
+                acc[result.category].push(result);
+                return acc;
+            }, {});
+
+            // Display the categorized results
+            if (Object.keys(categorizedResults).length > 0) {
+                for (const category in categorizedResults) {
+                    const categoryHeader = document.createElement('h2');
+                    categoryHeader.textContent = category;
+                    resultsContainer.appendChild(categoryHeader);
+
+                    categorizedResults[category].forEach(result => {
+                        const resultItem = document.createElement('div'); // Create a div for each result
+                        const link = document.createElement('a'); // Create a link for each result
+                        link.href = result.page; // Set the href attribute to the page URL
+                        link.textContent = result.title; // Set the link text to the title
+                        link.className = 'link';
+                        resultItem.appendChild(link); // Append the link to the result div
+                        resultsContainer.appendChild(resultItem); // Append the result div to the results container
+                    });
+                }
+            } else {
+                resultsContainer.innerHTML = '<p>No results found</p>'; // Display a message if no results are found
+            }
+        }
+
+        // Get the search query from the URL
+        const query = getQueryParam('query');
+        if (query) {
+            performSearch(query.toLowerCase()); // Perform the search with the query in lowercase
+        }
+    </script>
+
+<div class="bottom-navbar">
+    <a href="/map.html">World Map</a>
+    <a href="linkki">Map Gallery</a>
+    <a href="https://github.com/ImportantSeal">Github</a>
+    <a href="linkki">Lista</a>
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Hae arkistosta...">
+        <button onclick="searchWiki()"></button>
+    </div>
+    <img src="/media_muu/logo.png" id="logo">
+</div>
+ 
+<div id="results"></div>
+
+<script src="map.js"></script>
+<script src="/search.js"></script>
+
+</body>
+</html>

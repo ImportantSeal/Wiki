@@ -109,7 +109,7 @@ body {
     border-style: solid;
     border-color: rgb(226, 226, 226);
     border-width: 2px;
-    background-color: rgba(22, 41, 29, 0.4);
+    background-color: rgba(19, 21, 44);
     padding: 1%;
 }
 .middle-image{
@@ -126,7 +126,7 @@ body {
     border-style: solid;
     border-color: rgb(226, 226, 226);
     border-width: 2px;
-    background-color: rgb(22, 41, 29, 0.4);
+    background-color: rgb(19, 21, 44);
     clear: both;
     padding: 1%;
     font-size: 0.8em;
@@ -252,22 +252,27 @@ hr {
 }
 
 #search-input {
-    padding: 2.75vh;
     font-size: 2vh;
     background-color: rgb(255, 255, 255);
     border: 0;
+    padding-left: 3vh;
 }
 
 button {
     color: white;
-    padding: 1.75vh 2.5vh;
+    padding: 4vh;
     font-size: 2vh;
     background-color: rgb(94, 69, 41);
     border:0;
     cursor: pointer;
+    background-image: url(glass.png);
+    background-size: 5.5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 button:hover{
-    background-color: rgb(54, 45, 37);
+    background-color: rgb(49, 59, 63);
 }
 
