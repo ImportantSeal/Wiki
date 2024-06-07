@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    
     <div class="search-results-container">
         <h1>Hakutulokset</h1>
         <div id="results"></div>
@@ -28,6 +29,20 @@
                 return 'Henkilöt';
             } else if (page.includes('maantiede/')) {
                 return 'Maantiede';
+            } else if (page.includes('kaupungit/')) {
+                return 'Kaupungit';
+            } else if (page.includes('meret/')) {
+                return 'Maantiede';
+            } else if (page.includes('tapahtumat/')) {
+                return 'Tapahtumat';
+            } else if (page.includes('kasvit/')) {
+                return 'Kasvit';
+            } else if (page.includes('olennot/')) {
+                return 'Olennot';
+            } else if (page.includes('organisaatiot/')) {
+                return 'Organisaatiot';
+            } else if (page.includes('jumalat/')) {
+                return 'Jumalat';
             } else {
                 return 'Muut';
             }

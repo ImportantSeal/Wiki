@@ -80,21 +80,25 @@ window.onload = function () {
 
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
-    var points = [        
-        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html'},
-        { x: 0.2, y: 0.25, link: 'http://example.com/2' },
-        { x: 0.3, y: 0.35, link: 'http://example.com/3' }
+    var points = [
+        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', color: 'navy' },
+        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', color: 'navy' },
+        { x: 0.7, y: 0.8, link: 'valtiot/kausi/kausi.html', color: 'green' }
     ];
 
     function drawPoints() {
         ctx.save();
+        var currentTransform = ctx.getTransform();
+        var radius = 5 / currentTransform.a; // adjust radius based on zoom level
+        var lineWidth = 1 / currentTransform.a; // adjust line width based on zoom level
         points.forEach(function (point) {
             var scaledX = point.x * canvas.width;
             var scaledY = point.y * canvas.height;
             ctx.beginPath();
-            ctx.arc(scaledX, scaledY, 5, 0, 2 * Math.PI, true);
-            ctx.fillStyle = 'red';
+            ctx.arc(scaledX, scaledY, radius, 0, 2 * Math.PI, true);
+            ctx.fillStyle = point.color;
             ctx.fill();
+            ctx.lineWidth = lineWidth;
             ctx.strokeStyle = 'black';
             ctx.stroke();
         });
@@ -128,7 +132,6 @@ window.onload = function () {
         if (!dragged) zoom(evt.shiftKey ? -1 : 1);
     }, false);
 
-    
     canvas.addEventListener('click', function (evt) {
         lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
         lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
@@ -144,7 +147,6 @@ window.onload = function () {
             }
         });
     }, false);
-
 
     var scaleFactor = 1.1;
 
@@ -209,5 +211,3 @@ window.onload = function () {
         redraw();
     }
 };
-
-
