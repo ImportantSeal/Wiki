@@ -58,12 +58,52 @@ window.onload = function () {
     var img = new Image();
     img.src = '/media_muu/aadramin.jpg';
 
+    var markerImages = {};
+    var points = [
+        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', image: 'hylje_makaa.jpg', width: 50, height: 50 },
+        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', image: '', width: 50, height: 50 },
+        { x: 0.907, y: 0.74, link: 'valtiot/herwood/herwood.html', image: 'valtiot/herwood/herwood_media/vaakuna_herwood.png', width: 50, height: 50 }
+    ];
+    
+    var hoveredPoint = null;
+
+    function drawPoints() {
+        ctx.save();
+        var currentTransform = ctx.getTransform();
+        points.forEach(function (point) {
+            var markerImg = markerImages[point.image];
+            if (markerImg) {
+                var scaledX = point.x * canvas.width;
+                var scaledY = point.y * canvas.height;
+                var width = point.width / currentTransform.a; // adjust width based on zoom level
+                var height = point.height / currentTransform.a; // adjust height based on zoom level
+
+                if (hoveredPoint === point) {
+                    width *= 1.2;
+                    height *= 1.2;
+                }
+
+                ctx.drawImage(markerImg, scaledX - width / 2, scaledY - height / 2, width, height);
+            }
+        });
+        ctx.restore();
+    }
+
     img.onload = function () {
         canvas.width = window.innerWidth;
         canvas.height = img.height * (canvas.width / img.width);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         trackTransforms(ctx);
-        redraw();
+
+        points.forEach(function (point) {
+            var markerImg = new Image();
+            markerImg.src = point.image;
+            markerImg.onload = function () {
+                markerImages[point.image] = markerImg;
+                // Call drawPoints whenever a marker image is loaded
+                drawPoints();
+            };
+        });
     };
 
     function redraw() {
@@ -74,35 +114,7 @@ window.onload = function () {
         drawPoints();
     }
 
-    function clamp(value, min, max) {
-        return Math.max(min, Math.min(max, value));
-    }
-
-    var lastX = canvas.width / 2, lastY = canvas.height / 2;
-    var dragStart, dragged;
-    var points = [
-        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', image: 'hylje_makaa.jpg', width: 50, height: 50 },
-        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', image: 'path/to/marker2.png', width: 50, height: 50 },
-        { x: 0.7, y: 0.8, link: 'valtiot/kausi/kausi.html', image: 'path/to/marker3.png', width: 50, height: 50 },
-        
-    ];
-
-    function drawPoints() {
-        ctx.save();
-        var currentTransform = ctx.getTransform();
-        points.forEach(function (point) {
-            var img = new Image();
-            img.src = point.image;
-            img.onload = function () {
-                var scaledX = point.x * canvas.width;
-                var scaledY = point.y * canvas.height;
-                var width = point.width / currentTransform.a; // adjust width based on zoom level
-                var height = point.height / currentTransform.a; // adjust height based on zoom level
-                ctx.drawImage(img, scaledX - width / 2, scaledY - height / 2, width, height);
-            };
-        });
-        ctx.restore();
-    }
+    var lastX, lastY, dragStart, dragged;
 
     canvas.addEventListener('mousedown', function (evt) {
         document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
@@ -115,8 +127,30 @@ window.onload = function () {
     canvas.addEventListener('mousemove', function (evt) {
         lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
         lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-        dragged = true;
-        if (dragStart) {
+        var pt = ctx.transformedPoint(lastX, lastY);
+
+        var found = false;
+        points.forEach(function (point) {
+            var scaledX = point.x * canvas.width;
+            var scaledY = point.y * canvas.height;
+            var currentTransform = ctx.getTransform();
+            var width = point.width / currentTransform.a;
+            var height = point.height / currentTransform.a;
+            if (pt.x >= scaledX - width / 2 && pt.x <= scaledX + width / 2 &&
+                pt.y >= scaledY - height / 2 && pt.y <= scaledY + height / 2) {
+                hoveredPoint = point;
+                found = true;
+            }
+        });
+
+        if (!found) {
+            hoveredPoint = null;
+        }
+
+        if (!dragStart) {
+            redraw();
+        } else {
+            dragged = true;
             var pt = ctx.transformedPoint(lastX, lastY);
             var dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
             if (canTranslate(dx, dy)) {
