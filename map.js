@@ -81,26 +81,25 @@ window.onload = function () {
     var lastX = canvas.width / 2, lastY = canvas.height / 2;
     var dragStart, dragged;
     var points = [
-        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', color: 'navy' },
-        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', color: 'navy' },
-        { x: 0.7, y: 0.8, link: 'valtiot/kausi/kausi.html', color: 'green' }
+        { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', image: 'hylje_makaa.jpg', width: 50, height: 50 },
+        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', image: 'path/to/marker2.png', width: 50, height: 50 },
+        { x: 0.7, y: 0.8, link: 'valtiot/kausi/kausi.html', image: 'path/to/marker3.png', width: 50, height: 50 },
+        
     ];
 
     function drawPoints() {
         ctx.save();
         var currentTransform = ctx.getTransform();
-        var radius = 5 / currentTransform.a; // adjust radius based on zoom level
-        var lineWidth = 1 / currentTransform.a; // adjust line width based on zoom level
         points.forEach(function (point) {
-            var scaledX = point.x * canvas.width;
-            var scaledY = point.y * canvas.height;
-            ctx.beginPath();
-            ctx.arc(scaledX, scaledY, radius, 0, 2 * Math.PI, true);
-            ctx.fillStyle = point.color;
-            ctx.fill();
-            ctx.lineWidth = lineWidth;
-            ctx.strokeStyle = 'black';
-            ctx.stroke();
+            var img = new Image();
+            img.src = point.image;
+            img.onload = function () {
+                var scaledX = point.x * canvas.width;
+                var scaledY = point.y * canvas.height;
+                var width = point.width / currentTransform.a; // adjust width based on zoom level
+                var height = point.height / currentTransform.a; // adjust height based on zoom level
+                ctx.drawImage(img, scaledX - width / 2, scaledY - height / 2, width, height);
+            };
         });
         ctx.restore();
     }
@@ -139,10 +138,11 @@ window.onload = function () {
         points.forEach(function (point) {
             var scaledX = point.x * canvas.width;
             var scaledY = point.y * canvas.height;
-            var dx = pt.x - scaledX;
-            var dy = pt.y - scaledY;
-            var distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 5) {
+            var currentTransform = ctx.getTransform();
+            var width = point.width / currentTransform.a;
+            var height = point.height / currentTransform.a;
+            if (pt.x >= scaledX - width / 2 && pt.x <= scaledX + width / 2 &&
+                pt.y >= scaledY - height / 2 && pt.y <= scaledY + height / 2) {
                 window.open(point.link, '_blank');
             }
         });
@@ -151,7 +151,7 @@ window.onload = function () {
     var scaleFactor = 1.1;
 
     var zoom = function (clicks) {
-        var pt = ctx.transformedPoint(lastX, lastY);
+        var pt = ctx.transformedPoint(lastX, lastY); // use last mouse position
         ctx.translate(pt.x, pt.y);
         var factor = Math.pow(scaleFactor, clicks);
         var futureScale = ctx.getTransform().a * factor;
