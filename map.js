@@ -61,8 +61,11 @@ window.onload = function () {
     var markerImages = {};
     var points = [
         { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', image: 'hylje_makaa.jpg', width: 50, height: 50 },
-        { x: 0.34, y: 0.625, link: 'valtiot/akastasia/akastasia.html', image: '', width: 50, height: 50 },
-        { x: 0.907, y: 0.74, link: 'valtiot/herwood/herwood.html', image: 'valtiot/herwood/herwood_media/vaakuna_herwood.png', width: 50, height: 50 }
+        { x: 0.7852, y: 0.64, link: 'valtiot/luotola/luotola.html', image: 'valtiot/luotola/luotola_media/luotola_lippu.png', width: 80, height: 60 },
+        { x: 0.907, y: 0.74, link: 'valtiot/herwood/herwood.html', image: 'valtiot/herwood/herwood_media/vaakuna_herwood.png', width: 76, height: 80},
+        { x: 0.947, y: 0.575, link: 'valtiot/kaldoaivi/kaldoaivi.html', image: 'valtiot/kaldoaivi/kaldoaivi_media/kaldoaivi_lippu.png', width: 80, height: 60},
+        { x: 0.106, y: 0.718, link: 'valtiot/helmeran/helmeran.html', image: 'valtiot/helmeran/helmeran_media/helmeran_lippu.png', width: 80, height: 90}
+
     ];
     
     var hoveredPoint = null;
