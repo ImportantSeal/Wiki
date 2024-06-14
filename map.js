@@ -56,7 +56,7 @@ window.onload = function () {
     var canvas = document.getElementById('mapCanvas');
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    img.src = '/maantiede/maantiede_media/maailmankartta.png';
+    img.src = 'maantiede/maantiede_media/maailmankartta_min.jpg';
 
     var markerImages = {};
     var points = [
