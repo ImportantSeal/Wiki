@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria</title>
+    <link rel="stylesheet" href="galleria.css">
+</head>
+<body>
+    <div class="container">
+        <div class="filter">
+            <button onclick="filterItems('all')">Kaikki</button>
+            <button onclick="filterItems('flag')">Liput</button>
+            <button onclick="filterItems('coat-of-arms')">Vaakunat</button>
+            <button onclick="filterItems('map')">Kartat</button>
+            <!-- <button onclick="filterItems('village-map')">Kyläkartat</button> -->
+            <button onclick="filterItems('other')">Muut</button>
+        </div>
+        <div class="gallery" id="gallery">
+            <!--liput-->
+            <div class="gallery-item flag">
+                <img src="valtiot/helmeran/helmeran_media/helmeran_lippu.png" alt="Helmeranin lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/hermes/hermes_media/hermes_lippu.png" alt="Hermesin lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/herwood/herwood_media/herwood_lippu.png" alt="Herwoodin lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/amaaria_lippu_sota.png" alt="Amaarain lippu sota" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/amaaria_lippu.png" alt="Amaarain lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/inhi_lippu.png" alt="Inhin lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/novatoria_lippu.png" alt="Novatorian lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/paltokka_lippu.png" alt="Paltokan lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/keskeerit_lippu.png" alt="Keskeerien lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot/jaakka/jaakka_media/turan_lippu.png" alt="Turanin lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\kaldoaivi\kaldoaivi_media\abratius_lippu.png" alt="Abratiuksen lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\kaldoaivi\kaldoaivi_media\kaldoaivi_lippu.png" alt="Abratiuksen lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\luotola\luotola_media\luotola_laivasto_lippu.png" alt="Luotolan laivaston lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\luotola\luotola_media\luotola_lippu.png" alt="Luotolan lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\luotola\luotola_media\luotola_vastarinta_lippu.png" alt="Luotolan vastarinnan lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\parkea\pareka_media\parkea_lippu.png" alt="Parkean lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\sermania\sermania_media\semania_keisarikunta_lippu.png" alt="Sermanian keisarikunnan lippu" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item flag">
+                <img src="valtiot\sermania\sermania_media\sermania_kuningaskunta_lippu.png" alt="Sermanian kuningaskunnan lippu" onclick="openModal(this)">
+            </div>
+            <!--vaakunat-->
+            <div class="gallery-item coat-of-arms">
+                <img src="valtiot/herwood/herwood_media/vaakuna_herwood.png" alt="Herwoodin vaakuna" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item coat-of-arms">
+                <img src="valtiot/jaakka/jaakka_media/novatoria_vaakuna.png" alt="Novatorian vaakuna" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item coat-of-arms">
+                <img src="valtiot\kaldoaivi\kaldoaivi_media\samir_suvun_vaakuna.png" alt="Samir suvun vaakuna" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item coat-of-arms">
+                <img src="valtiot\kaldoaivi\kaldoaivi_media\samir_suvun_vaakuna.png" alt="Samir suvun vaakuna" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item coat-of-arms">
+                <img src="valtiot\luotola\luotola_media\luotola_vaakuna_kuningas.png" alt="Luotolan vaakuna" onclick="openModal(this)">
+            </div>
+
+            <!--kartat-->
+            <div class="gallery-item map">
+                <img src="maantiede\maantiede_media\maailmankartta_min.jpg" alt="Maailma" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item map">
+                <img src="maantiede\maantiede_media\pohjoisen_saaret.jpg" alt="Pohjoisen saaret" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item map">
+                <img src="maantiede\maantiede_media\hermes.png" alt="Hermes" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item map">
+                <img src="maantiede\maantiede_media\sermania.jpg" alt="Sermania" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item map">
+                <img src="maantiede\maantiede_media\luotola.png" alt="Luotola" onclick="openModal(this)">
+            </div>
+
+            <!--kyläkartat-->
+            <!-- div class="gallery-item village-map">
+                <img src="path/to/village-map1.jpg" alt="Kyläkartta 1" onclick="openModal(this)">
+            </div> -->
+            <!--muut-->
+            <div class="gallery-item other">
+                <img src="olennot_ja_lajit\jumalat\jumalat_media\kasaari_tunnus.png" alt="Kasaari tunnus" onclick="openModal(this)">
+            </div>
+            <!-- Lisää kuvia samalla logiikalla -->
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <div class="bottom-navbar">
+        <a href="map.html">Maailmankartta</a>
+        <a href="galleria.html" class="active">Galleria</a>
+        <a href="https://github.com/ImportantSeal">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button class="search_button" onclick="searchWiki()"></button>
+        </div>
+        <img src="/media_muu/logo.png" id="logo">
+    </div>
+
+    <script src="galleria.js"></script>
+</body>
+</html>
