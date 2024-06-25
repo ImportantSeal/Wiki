@@ -61,11 +61,11 @@ window.onload = function () {
     var markerImages = {};
     var points = [
         { x: 0.1, y: 0.15, link: 'valtiot/jaakka/inhi.html', image: 'hylje_makaa.jpg', width: 50, height: 50 },
-        { x: 0.7852, y: 0.64, link: 'valtiot/luotola/luotola.html', image: 'valtiot/luotola/luotola_media/luotola_lippu.png', width: 95, height: 55 },
+        { x: 0.7852, y: 0.64, link: 'valtiot/luotola/luotola.html', image: 'valtiot/luotola/luotola_media/luotola_lippu.png', width: 80, height: 55 },
         { x: 0.907, y: 0.74, link: 'valtiot/herwood/herwood.html', image: 'valtiot/herwood/herwood_media/herwood_lippu.png', width: 83, height: 60},
         { x: 0.945, y: 0.575, link: 'valtiot/kaldoaivi/kaldoaivi.html', image: 'valtiot/kaldoaivi/kaldoaivi_media/kaldoaivi_lippu.png', width: 83, height: 60},
         { x: 0.106, y: 0.718, link: 'valtiot/helmeran/helmeran.html', image: 'valtiot/helmeran/helmeran_media/helmeran_lippu.png', width: 85, height: 55},
-        { x: 0.036, y: 0.467, link: 'valtiot/hermes/hermes.html', image: 'valtiot/hermes/hermes_media/hermes_lippu.png', width: 82, height: 55},
+        { x: 0.036, y: 0.467, link: 'valtiot/hermes/hermes.html', image: 'valtiot/hermes/hermes_media/hermes_lippu.png', width: 80, height: 60},
         { x: 0.925, y: 0.462, link: 'valtiot/parkea/parkea.html', image: 'valtiot/parkea/pareka_media/parkea_lippu.png', width: 80, height: 60},
         { x: 0.850, y: 0.48, link: 'valtiot/sermania/sermania.html', image: 'valtiot/sermania/sermania_media/semania_keisarikunta_lippu.png', width: 85, height: 55},
 
