@@ -6,17 +6,11 @@
     <title>Herwood</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
-</head>
+    <script src="search.js"></script>
+
 </head>
 <body>
 
-    <div class="topbar">
-    <a href="\kotisivu.html">
-        <img src="\lizard.jpg" class="home-image" alt="home">
-    </a>
-    </div>
-    
-    </div>
     <div class="container">
     <h1 class="title">Herwood</h1>
     <img src="\valtiot\herwood\herwood_media\vaakuna_herwood.png" class="top-image" alt="Hervannan vaakuna">
@@ -69,8 +63,21 @@
     Palojen jälkeen Herwoodin kuningaskunta perustettiin virallisesti nykyisen Normanlinnan alueelle vuonna 2 ua.</p>
 
     <hr>
-
     
 </div>
+
+<div class="bottom-navbar">
+    <a href="/map.html" class="logo-link">
+        <img src="/media_muu/logo.png" id="logo">
+    </a>
+    <a href="/map.html" class="nav-link">Maailmankartta</a>
+    <a href="/galleria.html" class="nav-link">Galleria</a>
+    <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Hae arkistosta...">
+        <button onclick="searchWiki()"></button>
+    </div>
+</div>
+
 </body>
 </html>

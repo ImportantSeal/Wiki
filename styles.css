@@ -192,6 +192,20 @@ hr {
     color: aliceblue;
 }
 
+#map-container {
+    position: absolute;
+    text-align: center;
+    height: auto;
+}
+
+#map {
+    height: auto;
+    object-fit: cover;
+    transform: translateX(-50% 50%); 
+    user-select: none;
+}
+
+
 
 .bottom-navbar {
     background-color: rgb(19, 21, 44);
@@ -213,6 +227,10 @@ hr {
     font-size: 2vh;
 }
 
+.bottom-navbar a.logo-link {
+    padding: 0; /* Poistaa paddingin logolta *//* Epäironisesti 2h säätämisen jälkeen tää olis se kaikki mitä tarvittiin ratkaseen random linkbox ongelma >:DD!!! sekoan  */
+}
+
 .bottom-navbar a:hover {
     background-color: aliceblue;
     color: black;
@@ -232,18 +250,6 @@ hr {
     height: auto;
 }
 
-#map-container {
-    position: absolute;
-    text-align: center;
-    height: auto;
-}
-
-#map {
-    height: auto;
-    object-fit: cover;
-    transform: translateX(-50% 50%); 
-    user-select: none;
-}
 
 #search-bar {
     display: flex;
