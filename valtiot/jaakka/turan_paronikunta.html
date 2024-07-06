@@ -7,35 +7,43 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
-    <h1 class="title">Tura Paronikunta</h1>
+        <h1 class="title">Turan Paronikunta</h1>
 
-    <p class="content">
-    Turan paronikunta eli Tura, on alue <a href="\valtiot\jaakka\jaakka.html" class="link">Jääkässä</a>. Turan paronikunta kuuluu <a href="\valtiot\jaakka\novatoria.html" class="link">Novatorian</a> ruhtinaskuntaan.
-    </p>
-    <hr>
-    <h2 class="subhead" id="Välitosikko1">Historia</h2>
-    <p class="content">
-    Ennen Turan paronikuntaa alueella sijaitsi <a href="\valtiot\entiset_valtiot\turan_soturikunta.html" class="link">Turan soturikunta</a>. Paronikunnan populaatio muodostui alkujaan örkeistä, jotka taipuivat soturikunnan hajotessa Novatorian vallan alaisuuten.
-    <br> Paronikuntaan kuuluvat örkit antautuessaan Novatorialle näyttivät muiden soturikuntalaisten silmissä pettureilta, joka johti kahakoihin ja erinäisiin taisteluihin hajonneiden örkkien klaanien ja Novatorian välillä. Näissä kahakoissa Novatoria taisteli paronikunnan örkkien puolella uskollisesti klaaneja vastaa, joka suoraan paransi paronikunnan örkkien näkemyksiä novatorialaisista.
-    </p>
-    <hr>
-    <h2 class="subhead" id="Väliotsikko2">Veriparoni</h2>
-    <p class="content">
-    Novatoria sallii paronikunnan paronin valinnan örkkien perinteitä kunniottavalla rituaalilla. Paroni, josta käytetään myös nimitystä <b>veriparoni</b>, valitaan rituaalisella taistelulla johon useat örkki suvut lähettävät voimakkaimman soturinsa taistelemaan paronin tittelistä.
-    <br>Valinta, jossa örkit taistelevat kuolemaansa, kunnes ainut selviytyjistä kruunataan johtajaksi on peräisin Turan soturikunnan ajoilta, jossa soturikuntaa johtanut "Verikuningas" valittiin vastaavalla rituaalilla.
-    </p>
-    
-    
-</div>
+        <p class="content">
+            Turan paronikunta eli Tura, on alue <a href="\valtiot\jaakka\jaakka.html" class="link">Jääkässä</a>. Turan paronikunta kuuluu <a href="\valtiot\jaakka\novatoria.html" class="link">Novatorian</a> ruhtinaskuntaan.
+        </p>
+        <hr>
+        <h2 class="subhead" id="Väliotsikko1">Historia</h2>
+        <p class="content">
+            Ennen Turan paronikuntaa alueella sijaitsi <a href="\valtiot\entiset_valtiot\turan_soturikunta.html" class="link">Turan soturikunta</a>. Paronikunnan populaatio muodostui alkujaan örkeistä, jotka taipuivat soturikunnan hajotessa Novatorian vallan alaisuuteen.
+            <br> Paronikuntaan kuuluvat örkit antautuessaan Novatorialle näyttivät muiden soturikuntalaisten silmissä pettureilta, joka johti kahakoihin ja erinäisiin taisteluihin hajonneiden örkkien klaanien ja Novatorian välillä. Näissä kahakoissa Novatoria taisteli paronikunnan örkkien puolella uskollisesti klaaneja vastaan, joka suoraan paransi paronikunnan örkkien näkemyksiä novatorialaisista.
+        </p>
+        <hr>
+        <h2 class="subhead" id="Väliotsikko2">Veriparoni</h2>
+        <p class="content">
+            Novatoria sallii paronikunnan paronin valinnan örkkien perinteitä kunnioittavalla rituaalilla. Paroni, josta käytetään myös nimitystä <b>veriparoni</b>, valitaan rituaalisella taistelulla johon useat örkkisuvut lähettävät voimakkaimman soturinsa taistelemaan paronin tittelistä.
+            <br>Valinta, jossa örkit taistelevat kuolemaansa saakka, kunnes ainut selviytyjä kruunataan johtajaksi on peräisin Turan soturikunnan ajoilta, jossa soturikuntaa johtanut "Verikuningas" valittiin vastaavalla rituaalilla.
+        </p>
+    </div>
+
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>

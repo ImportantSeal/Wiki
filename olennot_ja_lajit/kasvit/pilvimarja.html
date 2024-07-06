@@ -7,48 +7,54 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Pilvimarja</h1>
       
     <p class="content">
-    
     </p>
     <hr>
     <h2 class="subhead" id="Välitosikko1">Ulkonäkö</h2>
     <p class="content">
-    Pilvimarjan marja on vaalkoinen, hieman läpinäkyvä, 3-4cm kokoinen ja lakkamainen.
-    <br>Varren pituus vaihtelee 8-12cm. Varsi on kapea ja väritykseltään vaalean harmaa.
+    Pilvimarjan marja on valkoinen, hieman läpinäkyvä, 3-4 cm kokoinen ja lakkamainen.
+    <br>Varren pituus vaihtelee 8-12 cm. Varsi on kapea ja väritykseltään vaalean harmaa.
     </p>
     <hr>
 
     <h2 class="subhead" id="Väliotsikko2">Käyttö</h2>
     <p class="content">
     Pilvimarjaa käytetään usein ruokamarjana. Maultaan se on makeahko, hennon sitruksinen ja sen tekstuuri muistuttaa herkkusientä.
-    <br>Marjaa voidaan hillottaa tai syödä sellaisenaan.
+    <br>Marjaa voidaan hillota tai syödä sellaisenaan.
     </p>
     <h2 class="small_subhead">Vaikutukset</h2>
     <p class="content">
     Marjalla on "keventävä" vaikutus nautittuna, jota voidaan jalostaa alkemisin toimin.
-    <br>Jalostettuna rohdoksi, pilvimarja juoma tekee käyttäjästään hetkellisesti jopa puolet kevyemmän, joka voi esimerkiksi nostaa käyttäjän hyppäämis pituutta.
+    <br>Jalostettuna rohdoksi pilvimarja-juoma tekee käyttäjästään hetkellisesti jopa puolet kevyemmän, joka voi esimerkiksi nostaa käyttäjän hyppäämispituutta.
     </p>
     <hr>
 
     <h2 class="subhead" id="Väliotsikko3">Levinneisyys</h2>
     <p class="content">
-    Pilvimarjaa tavataan vuoristo ilmastossa läpi maailman. Poikkeuksena on Hermes, jonka ilmastossa pilvimarjaa ei olla havaittu kasvavan.
+    Pilvimarjaa tavataan vuoristoilmastossa läpi maailman. Poikkeuksena on Hermes, jonka ilmastossa pilvimarjaa ei olla havaittu kasvavan.
     </p>
-        
+    </div>
 
-    
-</div>
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>

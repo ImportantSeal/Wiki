@@ -48,13 +48,13 @@ body {
 .container {
     background-color: rgba(6, 9, 39, 0.95);
     width: 54%;
-    margin: auto; 
     padding-top: 1%;
     padding-left: 5%;
     padding-bottom: 8%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     margin-bottom: 3vh;
+    margin-top: 7vh;
 }
 
 .title{

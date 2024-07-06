@@ -7,14 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Pohjoisenmastiffi</h1>
@@ -23,40 +16,53 @@
     </div> 
     
     <h2 class="subhead">Sisällys</h2>
-    <ul id="table-of-contens">
-        <li><a href="#Väliotsikko1"class="link">Ulkonäkö ja rakenne</a></li>
-        <li><a href="#Väliotsikko2"class="link">Luonne ja käyttäytyminen</a></li>
-        <li><a href="#Väliotsikko3"class="link">Käyttötarkoitus</a></li>
+    <ul id="table-of-contents">
+        <li><a href="#Väliotsikko1" class="link">Ulkonäkö ja rakenne</a></li>
+        <li><a href="#Väliotsikko2" class="link">Luonne ja käyttäytyminen</a></li>
+        <li><a href="#Väliotsikko3" class="link">Käyttötarkoitus</a></li>
     </ul>
       
     <p class="content">
-    Pohjoisenmastiffi on suuri koirarotu, joka on peräisin nykyisen <a href="\valtiot\sermania\sermania.html" class="link"> Sermanian keisarikunnan</a> alueelta. 
+    Pohjoisenmastiffi on suuri koirarotu, joka on peräisin nykyisen <a href="\valtiot\sermania\sermania.html" class="link">Sermanian keisarikunnan</a> alueelta. 
     </p>
     <hr>
-    <h2 class="subhead" id="Välitosikko1">Ulkonäkö ja rakenne</h2>
+    <h2 class="subhead" id="Väliotsikko1">Ulkonäkö ja rakenne</h2>
     <p class="content">
     Pohjoisenmastiffi on raskasrakenteinen, suuri ja vahva koirarotu. Sen turkin väritys vaihtelee mustasta hopeanharmaaseen.
-    <br>Pohjoisenmastiffin säkäkorkeus on 90-95cm ja se painaa noin 150-165kg. Sen leveän ja lyhyen kuonon purema on koiraroduista vahvin.
+    <br>Pohjoisenmastiffin säkäkorkeus on 90-95 cm ja se painaa noin 150-165 kg. Sen leveän ja lyhyen kuonon purema on koiraroduista vahvin.
     </p>
     <hr>
 
     <h2 class="subhead" id="Väliotsikko2">Luonne ja käyttäytyminen</h2>
     <p class="content">
     Pohjoisenmastiffi on luonteeltaan rauhallinen ja uskollinen, mutta myös itsepäinen, joten sen koulutus on yleensä työlästä.
-    <br>Pohjoisenmastiffin vartionvaisto on korkea ja se ilmoittaa äänekkäällä haukullaan vieraista, tarkkaillen miten omistaja suhtautuu viearaisiin. Huomatessaan tulokkaiden hyväksynnän se lopettaa haukkumisen, mutta sillä on tapana vahtia tarmokkaasti vieraita.
+    <br>Pohjoisenmastiffin vartiointivaisto on korkea ja se ilmoittaa äänekkäällä haukullaan vieraista, tarkkaillen miten omistaja suhtautuu vieraisiin. Huomatessaan tulokkaiden hyväksynnän se lopettaa haukkumisen, mutta sillä on tapana vahtia tarmokkaasti vieraita.
     </p>
-
     <hr>
+
     <h2 class="subhead" id="Väliotsikko3">Käyttötarkoitus</h2>
     <p class="content">
-    Pohjoisenmastiffit on vanha rotu, jota on pidetty pääasiassa vartiokoirana, mutta rotu on myös nähnyt läpi historian käyttöä sotakoirana.
-    <br> Rodun suuren koon, vartiovaiston ja vahvan pureman ansiota siitä on tullut hyvin suosittu vaihtoehto etenkin pienille kylille, puolustautua <a href="\olennot_ja_lajit\olennot\goblin.html" class="link">goblineiden</a> kaltaisia pieniä ja agressiivisia hirviöitä vastaan. Puhekielessä pohjoisenmastiffista käytetään myös nimeä <b>goblinkoira</b>.
+    Pohjoisenmastiffi on vanha rotu, jota on pidetty pääasiassa vartiokoirana, mutta rotua on myös käytetty sotakoirana.
+    <br> Rodun suuren koon, vartiointivaiston ja vahvan pureman ansiosta siitä on tullut hyvin suosittu vaihtoehto etenkin pienille kylille puolustautua <a href="\olennot_ja_lajit\olennot\goblin.html" class="link">goblinien</a> kaltaisia pieniä ja aggressiivisia hirviöitä vastaan. Puhekielessä pohjoisenmastiffista käytetään myös nimeä <b>goblinkoira</b>.
     </p>
-    <hr>
+ 
+    </div>
 
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
 
+    <script src="/search.js"></script>
 
-    
-</div>
 </body>
 </html>

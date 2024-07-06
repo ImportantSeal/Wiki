@@ -7,14 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
         <h1 class="title">Pyhän Herioksen temppeli</h1>
@@ -30,9 +23,7 @@
             <b>Rakennusvuosi: </b>1379-
             <hr class="bottom-box-hr">
         </div>
-    
    
-      
     <p class="content">
     Pyhän Herioksen temppeli on rakenteilla oleva kuningas <a href="\henkilöt\almus_iv.html" class="link">Almus IV</a>:n aloittama temppeli lain ja järjestyksen jumala Juuleville.
     <br>Valmistuessaan se tulee olemaan Kaldoaivin suurin temppeli ja tulee mahduttamaan peräti 5000 ihmistä, joista 1800 on istumapaikkoja.
@@ -41,12 +32,26 @@
     
     <h2 class="subhead" id="Välitosikko1">Kritiikki</h2>
     <p class="content">
-    Temppeli on määrä rakentaa keskelle Aakaraa, joka vaatii lähistöllä olevien talojen purkua. Alueella asuneet kauppiaat ja aateliset ovat olleet tyytymättömiä rakentamispäätökseen
-    ja tehneet useita valituksia hoviin, tämän asian johdolta.
-    <br><br>Temppeliä on myös kritisoitu sen valtavasta koosta, jota pidetään paikoin kohtuuttomana. Valtava koko vaikuttaa myös rakentamisen hintaan, jonka arvioidaan tekevän temppelistä kalleimman rakennnusprojektin Kaldoaivissa. 
+    Temppeli on määrä rakentaa keskelle Aakaraa, joka vaatii lähistöllä olevien talojen purkua. Alueella asuneet kauppiaat ja aateliset ovat olleet tyytymättömiä rakentamispäätökseen ja tehneet useita valituksia hoviin tämän asian johdosta.
+    <br><br>Temppeliä on myös kritisoitu sen valtavasta koosta, jota pidetään paikoin kohtuuttomana. Valtava koko vaikuttaa myös rakentamisen hintaan, jonka arvioidaan tekevän temppelistä kalleimman rakennusprojektin Kaldoaivissa. 
     </p>
+    </div>
 
-    
-</div>
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>

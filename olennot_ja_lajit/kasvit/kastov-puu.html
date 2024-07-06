@@ -7,34 +7,26 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Kastov</h1>
-
 
     <p class="content">
     Kastov eli kastovpuu on havupuu, joka kasvaa luonnonvaraisesti itäisessä <a href="\valtiot\parkea\parkea.html" class="link">Parkeassa</a>.
     <br>Kastovista käytetään myös puhekielessä nimitystä tuhkapuu tai kivipuu. 
     </p>
     <hr>
-    <h2 class="subhead" id="Välitosikko1">Ulkonäko</h2>
+    <h2 class="subhead" id="Väliotsikko1">Ulkonäkö</h2>
     <p class="content">
-    Kastov on ikivihreä puu, jonka neulaset pysyvät puussa yleensä 10–18 vuotta. Vanhin neulasvuosikerta varisee pois puusta loppu kesästä.
+    Kastov on ikivihreä puu, jonka neulaset pysyvät puussa yleensä 10–18 vuotta. Vanhin neulasvuosikerta varisee pois puusta loppukesästä.
     <br>Lyhyet, ruosteenpunaiset neulaset kasvavat tiiviisti ja ne ovat 2–3 cm mittaisia.
-    <br>Kastov on pienehkö puu ja kasvaa tyypilliesti 10–20 metriä korkeaksi ja on ympärysmitaltaan noin 1.5-2.5 metriä.
+    <br>Kastov on pienehkö puu ja kasvaa tyypillisesti 10–20 metriä korkeaksi ja on ympärysmitaltaan noin 1,5-2,5 metriä.
     </p>
     <hr>
     <h2 class="subhead" id="Väliotsikko2">Käyttö</h2>
     <p class="content">
-    Puu on äärimmäisen kovaa ja sen kaataminen, sekä myöhempi työstäminen on niin haastavia, ettei kastovia käytetä laajamittaisessa rakentamisessa.
+    Puu on äärimmäisen kovaa ja sen kaataminen sekä myöhempi työstäminen on niin haastavaa, ettei kastovia käytetä laajamittaisessa rakentamisessa.
     <br>Puuta voidaan käyttää luomaan kevyitä, mutta myös lähes tuhoutumattomia kilpiä, tosin vain harvat puusepät ovat tätä yrittäneet ja vielä harvemmat siinä onnistuneet.
     <br><br>Puun oksista tehdyt taikasauvat ovat haluttuja velhojen keskuudessa, etenkin <a href="\maantiede\aadra.html" class="link">Aadrassa</a>.
     <br>Velhot myös käyttävät puun kaarnaa muutamissa suojaavissa loitsuissa ja puun vaikeasti kerättävää pihkaa voidaan käyttää suojaavissa rohdoissa. 
@@ -42,12 +34,27 @@
     <hr>
     <h2 class="subhead" id="Väliotsikko4">Muuta</h2>
     <p class="content">
-    Tarinoiden mukaan luonnon jumala <a href="\olennot_ja_lajit\jumalat\tosi_jumalat\sylvia.html" class="link">Sylvian</a> toiseksi vanhin lapsista Malina loi metsän, jossa kastov puut nykyisin kasvavat.
+    Tarinoiden mukaan luonnon jumala <a href="\olennot_ja_lajit\jumalat\tosi_jumalat\sylvia.html" class="link">Sylvian</a> toiseksi vanhin lapsista Malina loi metsän, jossa kastovpuut nykyisin kasvavat.
     <br><br>Vuonna 1028 Osmenian velhokunnan jäsen <a href="\henkilöt\kastov.html" class="link">Kastov</a> nimesi itsensä puun mukaan.
-    <br><br>Tuhkion kylän vaakunaa koristaa kastov puu.
+    <br><br>Tuhkion kylän vaakunaa koristaa kastovpuu.
     </p>
+    </div>
 
-    
-</div>
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>

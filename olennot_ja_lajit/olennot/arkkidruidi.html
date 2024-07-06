@@ -7,31 +7,37 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Arkkidruidi</h1>
-    
       
     <p class="content">
-    Arkkidruidi on suuren luonnon alueen kuten metsä, suon tai erämaan voimakkain <a href="\olennot_ja_lajit\olennot\druidi.html" class="link">druidi</a>. Arkkidruidejen yhteys luontoon on symbioosimainen siihen pisteeseen, ettei yhdellä alueella voi elää kuin yksi ainoa arkkidruidi.
+    Arkkidruidi on suuren luonnonalueen kuten metsän, suon tai erämaan voimakkain <a href="\olennot_ja_lajit\olennot\druidi.html" class="link">druidi</a>. Arkkidruidien yhteys luontoon on symbioosimainen siihen pisteeseen, ettei yhdellä alueella voi elää kuin yksi ainoa arkkidruidi.
     </p> 
     <hr>
     <h2 class="subhead" id="Välitosikko1">Kyvyt</h2>
     <p class="content">
     Arkkidruidien kyvyt ovat huomattavasti perinteisiä druideja laajemmat. Heidän suhteensa luontoon auttaa arkkidruideja aistimaan eläinten ja kasvien kautta läpi valvomallaan alueella.
-    <br><br>Tunnetuin arkkidruidien kyvyistä on katalysoida luonnon elinvoimaa kehonsa läpi. Katalysoinnin avulla arkkidruidin ikääntyminen hidastuu alle kymmenes nopeuteen, hänestä tulee immuuni kaikille luonnollisille myrkyille ja taudeille, sekä hän pystyy ennustamaan säätä täydellisellä tarkkuudella.
+    <br><br>Tunnetuin arkkidruidien kyvyistä on katalysoida luonnon elinvoimaa kehonsa läpi. Katalysoinnin avulla arkkidruidin ikääntyminen hidastuu alle kymmenesosaan normaalista nopeudesta, hänestä tulee immuuni kaikille luonnollisille myrkyille ja taudeille, sekä hän pystyy ennustamaan säätä täydellisellä tarkkuudella.
     </p>
+    </div>
 
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
 
-    
-</div>
+    <script src="/search.js"></script>
+
 </body>
 </html>

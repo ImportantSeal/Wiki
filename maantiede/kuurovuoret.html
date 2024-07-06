@@ -7,14 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Kuurovuoret</h1>
@@ -24,37 +17,52 @@
             <div class="center-title">
             <b>Sijainti</b>
             </div>
-    </div>  
+        </div>  
         Etelä-Jääkkä
         <hr class="bottom-box-hr">
         <div class="center-title">
             <b>Maantiede</b>
             </div>
-        Vuoriston pituus: 161km
-        <br>Vuoriston leveys: 59km
-        <br>Korkein kohta: 1 324m
+        Vuoriston pituus: 161 km
+        <br>Vuoriston leveys: 59 km
+        <br>Korkein kohta: 1 324 m
     </div>
   
-      
     <p class="content">
     Kuurovuoret ovat <a href="\valtiot\jaakka\jaakka.html" class="link">Jääkän</a> eteläisin vuoristo, joka jakaa <a href="\valtiot\jaakka\amaaria.html" class="link">Amaarian</a> ja <a href="\valtiot\jaakka\paltoka.html" class="link">Paltokan</a> ruhtinaskunnat toisistaan. 
     </p>
     <hr>
-    <h2 class="subhead" >Ilmasto</h2>
+    <h2 class="subhead">Ilmasto</h2>
     <p class="content">
     Pohjoisessa sijaitseva vuoristo kärsii kylmästä ilmastosta, mutta on silti Jääkän vuoristoista ainoa, joka kesäisin vapautuu täysin lumipeitteestään. 
-    <br> Matalaa vuoristoa piskaavat luoteesta Amaarian tasaisia niittyjä pitkin kulkevat kylmät, sekä lännestä lämpimämmät <a href="\valtiot\marmaarit\marmaarit.html" class="link">Marmaarien</a> tuulet.
-    <br><br> Voimakkaat tuulet viheltävät vuoriston kapeiden rotkojen läpi jopa 85dB:n voimakkuudella. Jatkuvasti puhaltavat tuulet tekevät vuoristoiden matkaajille kommunikaatiosta haastavaa, haittaavat nukkumista ja saavat jotkut jopa sekoamaan, antaen vuorille nimen Kuurovuoret.
+    <br> Matalaa vuoristoa piiskaavat luoteesta Amaarian tasaisia niittyjä pitkin kulkevat kylmät, sekä lännestä lämpimämmät <a href="\valtiot\marmaarit\marmaarit.html" class="link">Marmaarien</a> tuulet.
+    <br><br> Voimakkaat tuulet viheltävät vuoriston kapeiden rotkojen läpi jopa 85 dB:n voimakkuudella. Jatkuvasti puhaltavat tuulet tekevät vuoristossa matkaajille kommunikaatiosta haastavaa, haittaavat nukkumista ja saavat jotkut jopa sekoamaan, antaen vuorille nimen Kuurovuoret.
     </p>
     <hr>
 
     <h2 class="subhead">Asukkaat</h2>
     <p class="content">
     Vuoristossa on molempien, Amaarian ja Paltokan ruhtinaskuntien kaivoskyliä, jotka sijoittuvat vuorten juurelle. Etenkin Paltokan kaivoskyliä asuttavat useat kääpiöt, jotka pakenivat Pyhän marmaarien valtakunnan hyökäystä kääpiöitä kohtaan.
-    <br><br>Vuoriston korkeammissa kohdissa, jossa tuulet iskeytyvät kaikkein väkivaltaisimmin sen rotkoihin, asustavat <a href="\olennot_ja_lajit\olennot\tuulijättiläiset.html" class="link">tuulijättiläiset</a>, joidenka uskotaan vaikuttavan vuoriston piiskaaviin tuuliin.
-    <br>Jättiläiset eivät suoraan ole vihamielisiä, mutta keppostelevat kyläläisten kustannuksella. Yleisimpiä "kepposia" on puhaltaa vuoristossa matkaavien kärryjä ja telttoja nurin, tai aloittaa lumi- ja maavyöryjä, jotka ajoin osoittautuvat kyläläisille kuolettaviksi.
+    <br><br>Vuoriston korkeammissa kohdissa, joissa tuulet iskeytyvät kaikkein väkivaltaisimmin sen rotkoihin, asustavat <a href="\olennot_ja_lajit\olennot\tuulijättiläiset.html" class="link">tuulijättiläiset</a>, joiden uskotaan vaikuttavan vuoriston piiskaaviin tuuliin.
+    <br>Jättiläiset eivät suoraan ole vihamielisiä, mutta keppostelevat kyläläisten kustannuksella. Yleisimpiä "kepposia" on puhaltaa vuoristossa matkaavien kärryjä ja telttoja nurin, tai aloittaa lumi- ja maavyöryjä, jotka ajoittain osoittautuvat kyläläisille kuolettaviksi.
     </p>
+    </div>
 
-</div>
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>

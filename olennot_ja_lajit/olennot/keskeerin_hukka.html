@@ -7,14 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
     <h1 class="title">Keskeerin hukka</h1>
@@ -28,8 +21,8 @@
     <hr>
     <h2 class="subhead" id="Välitosikko1">Ulkonäkö ja rakenne</h2>
     <p class="content">
-    Keskeerin hukka on todella suuri susilaji. Se on rakenteeltaan pitkulamainen, kyttyräselkäinen ja tukeva. Sen turkki on tuuheaa ja väritykseltään se on kesäisin ruskea ja talvisin harmaa.
-    <br>Keskeerin hukan säkäkorkeus on 115-125cm ja se painaa noin 250-295kg. Hukan kuono on pitkulainen ja sen hampaat ovat hukan kokoon nähden pienehköt
+    Keskeerin hukka on todella suuri susilaji. Se on rakenteeltaan pitkulamainen, kyttyräselkäinen ja tukeva. Sen turkki on tuuheaa ja väritykseltään kesäisin ruskea ja talvisin harmaa.
+    <br>Keskeerin hukan säkäkorkeus on 115-125 cm ja se painaa noin 250-295 kg. Hukan kuono on pitkulainen ja sen hampaat ovat hukan kokoon nähden pienehköt.
     </p>
     <hr>
 
@@ -37,11 +30,25 @@
     <p class="content">
     Hukka on luonnossa nopea saalistaja, mutta sen kesyttäminen on mahdollista.
     Alkujaan <a href="\valtiot\jaakka\keskeerit.html" class="link">keskeerit</a> kesyttivät hukkia ratsuiksi, mistä hukka on myös saanut nimensä.
-    <br> Nykyisin hukkia ei juurikaan kesytetä niiden arvaamattomuuden, sekä varaallisuuden takia, mutta niiden metsästys on suosittua vahvan ja tunnistettavan turkin vuoksi.
-    
+    <br> Nykyisin hukkia ei juurikaan kesytetä niiden arvaamattomuuden sekä vaarallisuuden takia, mutta niiden metsästys on suosittua vahvan ja tunnistettavan turkin vuoksi.
+    </p>
+    </div>
 
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
 
-    
-</div>
+    <script src="/search.js"></script>
+
 </body>
 </html>

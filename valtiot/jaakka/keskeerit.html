@@ -7,37 +7,42 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
-    
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
 
     <div class="container">
-    <h1 class="title">Keskeerit</h1>
-    <img src="\valtiot\jaakka\jaakka_media\keskeerit_lippu.png" class="top-image" alt="keskeerien lippu">
-    <div class="caption">
-        Keskeerien epäviralliseti käyttämä lippu
+        <h1 class="title">Keskeerit</h1>
+        <img src="\valtiot\jaakka\jaakka_media\keskeerit_lippu.png" class="top-image" alt="keskeerien lippu">
+        <div class="caption">
+            Keskeerien epävirallisesti käyttämä lippu
+        </div>
+
+        <p class="content">
+            Keskeerit olivat pohjoinen kansa, joka asutti aikoinaan nykyisen <a href="\valtiot\jaakka\jaakka.html" class="link">Jääkän</a> läntistä rannikkoa.
+        </p>
+        <hr>
+        <h2 class="subhead" id="Välitosikko1">Kulttuuri</h2>
+        <p class="content">
+            Keskeerit olivat sotainen kansa, joka oli vahvassa kontrollissa asuttamallaan rannikolla. Keskeerit kesyttivät kookkaita <a href="\olennot_ja_lajit\olennot\keskeerin_hukka.html" class="link">keskeerien hukkia</a> ratsuiksi, joiden avulla keskeeri ratsastajat pystyivät liikkumaan nopeasti vahtien rannikkoa ja sen resursseja.
+            <br>Hukkien rooli oli myös symbolinen, sillä keskeerien hallitsijan valta polveutui suurimman hukan kesyttämisestä.
+            <br>Keskeerit näkivät hukan kesyttämisen tärkeimpänä johtamisen meriittinä. Jos keskeeri saapui kylään hukalla, joka on suurempi kuin nykyisen hallitsijan, oli hallitsijalla mahdollisuus joko luopua vallastaan, tai taistella ja surmata hukasta suurempi.
+        </p>
     </div>
-    
 
-      
-    <p class="content">
-    Keskeerit olivat pohjoinen kansa, joka asutti aikoinaan nykyisen <a href="\valtiot\jaakka\jaakka.html" class="link">Jääkän</a> läntistä rannikkoa.
-    </p>
-    <hr>
-    <h2 class="subhead" id="Välitosikko1">Kulttuuri</h2>
-    <p class="content">
-    Keskeerit olivat sotainen kansa, jotka olivat vahvassa kontrollissa asuttamallaan rannikolla. Keskeerit kesyttivät kookkaita <a href="\olennot_ja_lajit\olennot\keskeerin_hukka.html" class="link">keskeerien hukkia</a> ratsuiksi, joidenka avulla keskeeri ratsastajat pystyivät liikkumaan nopeasti vahtien rannikkoja ja se resursseja.
-    <br>Hukkien rooli oli myös symboolinen, sillä keskeerien hallitsijan valta polveutui suurimman hukan kesyttämisestä.
-    <br>Keskeerit näkivät hukan kesyttämisen tärkeimpänä johtamisen meriittinä. Jos keskeeri saapui kylään hukalla, joka on suurempi kuin nykyisen hallitsijan, oli hallitisjalla mahdollisuus joko luopua vallastaan, tai taistella ja surmata hukista suurempi.
-    </p>
-    
-</div>
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
 
+    <script src="/search.js"></script>
 
 </body>
 </html>

@@ -7,20 +7,13 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
     
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
-
     <div class="container">
     <h1 class="title">Turan Soturikunta</h1>
-    <img src="" class="top-image" alt="turan lippu">
+    <img src="\valtiot\jaakka\jaakka_media\turan_lippu.png" class="top-image" alt="turan lippu">
     <div class="caption">
-        kuvaus
+        Turan soturikunnan lippu
     </div>
       
     <p class="content">
@@ -32,18 +25,35 @@
     <p class="content">
     Turan soturikunta koostui useista örkkien klaaneista, jotka yhdistyivät soturikuntaa johtavan verikuninkaan alaisuuteen. 
     <br>Verikuningas valitaan prosessilla 10 vuoden välein, jossa kukin klaaneista lähettää valitsemansa soturin taistelemaan kuninkuudesta. Taistelu on ohi vasta kuin sotureista yksi nousee voitokkaana, muut päihitettyinä. 
-    <br><br>Verikuninkaan rooli on kriittinen soturikunnan yhtenäisyyden kannalta. Väkivaltaisen luonteen omaavat örkit ja näiden klaanit ajautuvat jatkuvasti kahakoihin, sekä sisäisiin taisteluihin ilman vahvaa johtajaa.
-    <br>Verikuninkaan tärkein rooli on käyttää auktoriteettiään taisteluiden rikkomiseen, sillä kaikkien örkkien keskuudessa kulkee syvä kunnioitus kuninkaan roolia kohtaa, hänen ollessaan taistelijoista vahvin.
+    <br><br>Verikuninkaan rooli on kriittinen soturikunnan yhtenäisyyden kannalta. Väkivaltaisen luonteen omaavat örkit ja näiden klaanit ajautuvat jatkuvasti kahakoihin sekä sisäisiin taisteluihin ilman vahvaa johtajaa.
+    <br>Verikuninkaan tärkein rooli on käyttää auktoriteettiaan taisteluiden rikkomiseen, sillä kaikkien örkkien keskuudessa kulkee syvä kunnioitus kuninkaan roolia kohtaan, hänen ollessaan taistelijoista vahvin.
     </p>
     <hr>    
 
     <h2 class="subhead">Hajoaminen</h2>
     <p class="content">
-    Tura hajosi Novatorian maagin lyödessä verikuninkaan. Turan klaaneista osa alistui Novatorian alaisuuteen, nähden Novatorian olevan valtuutettu johtamaan vahvuutensa ansiota.
-    <br>Örkeistä silti monet olivat tyytymättömiä tähän ja hajosivat omiin klaaneihinsa ja vetäytyen itää, kauemmaksi Novatoriasta.
+    Tura hajosi Novatorian maagin lyödessä verikuninkaan. Turan klaaneista osa alistui Novatorian alaisuuteen, nähden Novatorian olevan valtuutettu johtamaan vahvuutensa ansiosta.
+    <br>Örkeistä silti monet olivat tyytymättömiä tähän ja hajosivat omiin klaaneihinsa vetäytyen itään, kauemmaksi Novatoriasta.
     <br><br> Nykyisin Novatorian valtaan alistuneita örkkejä asuu <a href="\valtiot\jaakka\turan_paronikunta.html" class="link">Turan paronikunnassa</a>, jossa örkkien johtaja valitaan edelleen taistelulla kuolemaan asti.
     </p>
-    
+    </div>
+
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </div>
 </body>
 </html>

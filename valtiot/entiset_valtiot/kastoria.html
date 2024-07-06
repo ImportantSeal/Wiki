@@ -7,15 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="script.js"></script>
 </head>
-</head>
 <body>
     
-    <div class="topbar">
-        <a href="\kotisivu.html">
-            <img src="\lizard.jpg" class="home-image" alt="home">
-        </a>
-    </div>
-
     <div class="container">
     <h1 class="title">Kastoria</h1>
     <img src="\valtiot\jaakka\jaakka_media\jääkkäoriginalpikitähti1.png" class="top-image" alt="keskeerien lippu">
@@ -30,10 +23,26 @@
 
     <h2 class="subhead" id="Välitosikko1">Katoaminen</h2>
     <p class="content">
-    Kastorian asukkaat ja osa rakennuksista maagisesti revittiin nykyisen <a href="\valtiot\jaakka\novatoria.html" class="link">Novatorian</a> alueelle epäonnistuneen karkoitus loitsun seurauksena.
-    <br><br>Kaikki kastorialaiset eivät siirtyneet samaan paikkaan vaan heitä ilmestyi ympäri pintamaailman. Lisäksi osa kastorialaisista on edelleen kadoksissa ulottovuuksien, sekä maagisten taskujen piilottamina.
+    Kastorian asukkaat ja osa rakennuksista maagisesti revittiin nykyisen <a href="\valtiot\jaakka\novatoria.html" class="link">Novatorian</a> alueelle epäonnistuneen karkotusloitsun seurauksena.
+    <br><br>Kaikki kastorialaiset eivät siirtyneet samaan paikkaan vaan heitä ilmestyi ympäri pintamaailman. Lisäksi osa kastorialaisista on edelleen kadoksissa ulottuvuuksien sekä maagisten taskujen piilottamina.
     </p>
-    
-</div>
+    </div>
+
+    <div class="bottom-navbar">
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Hae arkistosta...">
+            <button onclick="searchWiki()"></button>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <script src="/search.js"></script>
+
 </body>
 </html>
