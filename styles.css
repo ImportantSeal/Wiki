@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    /*background-image: url("taustakuva.png");
+    /*background-image: url("riimutausta.png");
     background-blend-mode: overlay;*/
 }
 
@@ -46,7 +46,7 @@ body {
     height: auto; 
 }
 .container {
-    background-color: rgba(6, 9, 39, 0.95);
+    background-color: rgba(6, 9, 39, 0.90);
     width: 54%;
     padding-top: 1%;
     padding-left: 5%;
@@ -54,7 +54,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     margin-bottom: 3vh;
-    margin-top: 7vh;
+    margin-top: 10vh;
 }
 
 .title{

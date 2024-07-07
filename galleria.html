@@ -55,12 +55,14 @@
                 <img src="valtiot\kaldoaivi\kaldoaivi_media\kaldoaivi_lippu.png" alt="Kaldoaivin lippu" onclick="openModal(this)">
             </div>
             <div class="gallery-item flag">
-                <img src="valtiot\luotola\luotola_media\luotola_laivasto_lippu.png" alt="Luotolan sotalippu" onclick="openModal(this)">
+                <img src="valtiot\luotola\luotola_media\luotola_sotalippu.png" alt="Luotolan sotalippu" onclick="openModal(this)">
             </div>
             <div class="gallery-item flag">
                 <img src="valtiot\luotola\luotola_media\luotola_lippu.png" alt="Luotolan lippu" onclick="openModal(this)">
             </div>
-
+            <div class="gallery-item flag">
+                <img src="\valtiot\entiset_valtiot\entiset_valtiot_media\parkean_yhdistyneet_kansat_lippu.png" alt="Parkean yhdistyneiden kansojen lippu" onclick="openModal(this)">
+            </div>
             <div class="gallery-item flag">
                 <img src="valtiot\parkea\pareka_media\parkea_lippu.png" alt="Parkean lippu" onclick="openModal(this)">
             </div>
@@ -126,17 +128,22 @@
         <div id="caption"></div>
     </div>
 
+
     <div class="bottom-navbar">
-        <a href="map.html">Maailmankartta</a>
-        <a href="galleria.html" class="active">Galleria</a>
-        <a href="https://github.com/ImportantSeal">Github</a>
+        <a href="/map.html" class="logo-link">
+            <img src="/media_muu/logo.png" id="logo">
+        </a>
+        <a href="/map.html" class="nav-link">Maailmankartta</a>
+        <a href="/galleria.html" class="nav-link">Galleria</a>
+        <a href="https://github.com/ImportantSeal" class="nav-link">Github</a>
         <div id="search-bar">
             <input type="text" id="search-input" placeholder="Hae arkistosta...">
-            <button class="search_button" onclick="searchWiki()"></button>
+            <button onclick="searchWiki()"></button>
         </div>
-        <img src="/media_muu/logo.png" id="logo">
     </div>
+    <div id="results"></div>
+    <script src="/galleria.js"></script>
 
-    <script src="galleria.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>
