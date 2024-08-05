@@ -172,6 +172,11 @@ hr {
     margin-right: 6%;
 }
 
+li {
+    font-size: 0.9em;
+    color: rgb(238, 237, 228);   
+}
+
 .table-of-contents-link{
     text-decoration: none;
     color: rgb(205, 207, 66);
