@@ -69,6 +69,8 @@ window.onload = function () {
         { x: 0.925, y: 0.462, link: 'valtiot/parkea/parkea.html', image: 'valtiot/parkea/pareka_media/parkea_lippu.png', width: 80, height: 60},
         { x: 0.850, y: 0.48, link: 'valtiot/sermania/sermania.html', image: 'valtiot/sermania/sermania_media/semania_keisarikunta_lippu.png', width: 85, height: 55},
         { x: 0.507, y: 0.545, link: 'valtiot/sarjas/sarjas.html', image: 'valtiot/sarjas/sarjas_media/sarjaksen_unioni_lippu.png', width: 55, height: 55},
+        { x: 0.071, y: 0.36, link: 'valtiot/jaakka/jaakka.html', image: 'valtiot/jaakka/jaakka_media/jääkkä_lippu.png', width: 82, height: 55},
+
 
 
 
