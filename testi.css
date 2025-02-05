@@ -1,0 +1,30 @@
+#minimap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 120px; /* Minimapin leveys */
+    height: 100%; /* Koko sivun korkuinen */
+    background-color: rgba(0, 0, 0, 0.2); /* Läpikuultava tausta */
+    z-index: 9999; /* Korkea z-index, jotta minimap on muiden elementtien päällä */
+    overflow: hidden;
+    border-left: 2px solid #ccc; /* Reuna erotuksena */
+}
+
+#minimap-content {
+    position: relative;
+    transform-origin: top left;
+    transform: scale(0.1); /* Skaalataan sivu minimapiin sopivaksi */
+    width: 1000%; /* Tarvitaan skaalausta varten */
+    pointer-events: none; /* Estää vuorovaikutuksen minimapin sisällön kanssa */
+}
+
+#minimap-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background-color: rgba(255, 0, 0, 0.5); /* Korostuspalkki */
+    z-index: 10000;
+    pointer-events: none;
+}

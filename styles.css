@@ -52,9 +52,11 @@ body {
     padding-left: 5%;
     padding-bottom: 8%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
     margin-bottom: 3vh;
     margin-top: 10vh;
+    overflow-y: auto;
+    max-height: 80vh;
+
 }
 
 .title{
@@ -284,5 +286,25 @@ button {
 
 button:hover{
     background-color: rgb(49, 59, 63);
+}
+
+#minimap {
+    position: absolute;
+    top: 0;
+    right: 10%; /* Sijoitetaan minimap näkyville oikealle */
+    width: 100px; /* Leveys, joka antaa tilaa sisällölle */
+    height: auto; /* Sama korkeus kuin tekstilaatikolla */
+    z-index: 9999;
+    pointer-events: none; /* Estetään vuorovaikutus minimapin kanssa */
+    border: none;
+    overflow: hidden; /* Poistetaan skrollaus minimapista */
+    background-color: rgba(255, 0, 0, 0.0); /* Läpikuultava taustaväri */   
+}
+
+#minimap-content {
+    transform-origin: top left;
+    transform: scale(0.05); /* Skaalataan pienemmäksi, jotta koko sivu mahtuu */
+    width: 2000%; /* Leveys skaalauksen kompensoimiseksi */
+    pointer-events: none;
 }
 
